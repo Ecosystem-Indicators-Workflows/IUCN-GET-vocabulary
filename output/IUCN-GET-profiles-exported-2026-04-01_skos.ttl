@@ -11,25 +11,39 @@
 iucn:Biome a rdfs:Class ;
     rdfs:label "Functional biome"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "A component of a realm united by broad features of ecosystem structure and one or a few common major ecological drivers that regulate major ecological functions, derived from the top-down by subdivision of realms (level 1)."@en ;
+    rdfs:comment "A component of a realm united by one or a few common major ecological drivers that regulate major ecological functions. Biomes are derived from the top-down by subdivision of realms"@en ;
     skos:scopeNote "In GET, biome is different from the use of biome in other contexts — it is defined functionally rather than by vegetation physiognomy or climate alone."@en .
 
 iucn:EcosystemFunctionalGroup a rdfs:Class ;
     rdfs:label "Ecosystem Functional Group"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "A group of related ecosystems within a biome that share common ecological drivers, which in turn promote similar biotic traits that characterise the group. Derived from the top-down by subdivision of biomes."@en ;
+    rdfs:comment "A group of related ecosystems within a biome that share common ecological drivers promoting convergence of biotic traits that characterise the group. Functional groups are derived from the top-down by subdivision of biomes."@en ;
     skos:altLabel "EFG"@en .
 
 iucn:Realm a rdfs:Class ;
     rdfs:label "Realm"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "One of five major components of the biosphere that differ fundamentally in ecosystem organisation and function: terrestrial, freshwater, marine, subterranean, atmospheric and combinations of these (transitional realms). Because variation in nature is continuous, we also include transitional realms, where the realms meet and have their own unique organisation and function."@en .
-
-iucn:biomeCode a rdf:Property ;
+    rdfs:comment "A major component of the biosphere. Each realm has a distinct combination of assembly filters and ecological traits. Five core realms can be separated by their substrate: terrestrial, freshwater, marine, subterranean, atmospheric. Transitional realms accommodate continuous variation among the core realms."@en ;
+    iucn:biomeCode a rdf:Property ;
     rdfs:label "biome code"@en ;
     rdfs:comment "Code assigned to a Biome in the IUCN Global Ecosystem Typology."@en ;
     rdfs:domain iucn:Biome ;
     rdfs:range xsd:string .
+
+iucnget:RegionalEcosystemSubgroup a rdfs:Class ;
+    rdfs:label "Regional ecosystem subgroups"@en ;
+    rdfs:comment "An ecoregional expression of an ecosystem functional group derived from the top-down by subdivision of Ecosystem Functional Groups. They are proxies for compositionally distinctive geographic variants that occupy different areas within the distribution of a functional group."@en ;
+    dct:source "IUCN Global Ecosystem Typology".
+
+iucnget:GlobalEcosystemType a rdfs:Class ;
+    rdfs:label "Global ecosystem type"@en ;
+    rdfs:comment "A complex of organisms and their associated physical environment within an area occupied by an ecosystem functional group. Global ecosystem types grouped into the same ecosystem functional group share similar ecological processes, but exhibit substantial difference in biotic composition. They are derived from the bottom-up, either directly from ground observations or by aggregation of subglobal ecosystem types."@en ;
+    dct:source "IUCN Global Ecosystem Typology".
+
+iucnget:SubglobalEcosystemType a rdfs:Class ;
+    rdfs:label "Subglobal ecosystem type"@en ;
+    rdfs:comment "A subunit or nested group of subunits within a global ecosystem type, which therefore exhibit a greater degree of compositional homogeneity and resemblance to one another than global ecosystem types (level 5). These represent units of established classifications, in some cases arranged in a sub-hierarchy of multiple levels, derived directly from ground observations."@en ;
+    dct:source "IUCN Global Ecosystem Typology".
 
 iucn:distribution a rdf:Property ;
     rdfs:label "distribution"@en ;
