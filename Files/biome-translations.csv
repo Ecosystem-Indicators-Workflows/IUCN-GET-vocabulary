@@ -1,0 +1,51 @@
+biome_code,language,name,date
+F1,fr,F1. Biome des rivières et des ruisseaux,2025-09-15
+F1,es,F1. Bioma de ríos y arroyos,2025-09-15
+F2,fr,F2. Biome lacustre,2025-09-15
+F2,es,F2. Bioma de lagos,2025-09-15
+F3,fr,F3. Biome des zones humides artificielles,2025-09-15
+F3,es,F3. Bioma de humedales artificiales,2025-09-15
+FM1,es,FM1. Bioma de aguas de transición semiconfinadas,2025-09-15
+FM1,fr,FM1. Biome des eaux de transition semi-confinées,2025-09-15
+M1,fr,M1. Biome du plateau marin,2025-09-15
+M1,es,M1. Bioma de plataforma marina,2025-09-15
+M2,fr,M2. Biome des eaux océaniques pélagiques,2025-09-15
+M2,es,M2. Bioma de aguas oceánicas pelágicas,2025-09-15
+M3,es,M3. Bioma de los fondos marinos profundos,2025-09-15
+M3,fr,M3. Biome des fonds marins,2025-09-15
+M4,fr,M4. Biome marin anthropique,2025-09-15
+M4,es,M4. Bioma marino antropogénico,2025-09-15
+MFT1,fr,MFT1. Biome de marée saumâtre,2025-09-15
+MFT1,es,MFT1. Bioma de mareas salobres,2025-09-15
+MT1,fr,MT1. Biome des rivages,2025-09-15
+MT1,es,MT1. Bioma de las costas,2025-09-15
+MT2,es,MT2. Bioma costero supralitoral,2025-09-15
+MT2,fr,MT2. Biome côtier supralittoral,2025-09-15
+MT3,fr,MT3. Biome des rivages anthropiques,2025-09-15
+MT3,es,MT3. Bioma de costas antropogénicas,2025-09-15
+S1,es,S1. Bioma lítico subterráneo,2025-09-15
+S1,fr,S1. Biome lithique souterrain,2025-09-15
+S2,fr,S2. Biome des vides souterrains anthropogéniques,2025-09-15
+S2,es,S2. Bioma de espacios subterráneos antropogénicos,2025-09-15
+SF1,es,SF1. Bioma de aguas dulces subterráneas,2025-09-15
+SF1,fr,SF1. Biome des eaux douces souterraines,2025-09-15
+SF2,es,SF2. Bioma de aguas dulces subterráneas antropogénicas,2025-09-15
+SF2,fr,SF2. Biome anthropique des eaux douces souterraines,2025-09-15
+SM1,es,SM1. Bioma subterráneo mareal,2025-09-15
+SM1,fr,SM1. Biome tidal souterrain,2025-09-15
+T1,fr,T1. Biome des forêts tropicales-subtropicales,2025-09-15
+T1,es,T1. Bioma de bosques tropicales y subtropicales,2025-09-15
+T2,es,T2. Bioma de bosques templados y boreales,2025-09-15
+T2,fr,T2. Biome des forêts et des bois boréaux tempérés,2025-09-15
+T3,es,T3. Bioma de arbustales y matorrales,2025-09-15
+T3,fr,T3. Biome des arbustes et des forêts arbustives,2025-09-15
+T4,es,T4. Bioma de sabanas y pastizales,2025-09-15
+T4,fr,T4. Biome des savanes et des prairies,2025-09-15
+T5,fr,T5. Biome des déserts et semi-déserts,2025-09-15
+T5,es,T5. Bioma de desiertos y semidesiertos,2025-09-15
+T6,es,T6. Bioma polar/alpino (criogénico),2025-09-15
+T6,fr,T6. Biome polaire/alpin (cryogénique),2025-09-15
+T7,fr,T7. Biome d\'utilisation intensive des terres,2025-09-15
+T7,es,T7. Bioma de uso intensivo de la tierra,2025-09-15
+TF1,fr,TF1. Biome des zones humides palustres,2025-09-15
+TF1,es,TF1. Bioma de humedales palustres,2025-09-15

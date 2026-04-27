@@ -1,31 +1,33 @@
 """
-Excel to SKOS/RDF Converter (v3 — multilingual + w3id)
-======================================================
+Excel to SKOS/RDF Converter (v4 — external translation CSVs + placeholder defs)
+================================================================================
 Converts the IUCN GET profiles workbook into SKOS/RDF (Turtle + RDF/XML).
 
-Changes vs. v2
+Changes vs. v3
 --------------
-* Base URI moved to https://w3id.org/iucn-get/ (canonical, persistent).
-* Per-language identifiers removed — each concept has ONE canonical
-  dcterms:identifier (https://w3id.org/iucn-get/EFG_F1_1). Language-specific
-  web pages on global-ecosystems.org are linked via foaf:page instead,
-  cleanly separating concept identity from language-specific representations.
-* skos:altLabel is suppressed when equal to the prefLabel of the same lang.
-* EFGs link to their realm via skos:broaderTransitive (biome stays on
-  skos:broader as the direct parent).
-* EFGs in the same biome are linked with skos:related.
-* iucn:latestUpdate links a concept to its most recently modified
-  language-version blank node.
-* Custom iucn:* properties are now declared with rdfs:domain / rdfs:range
-  in the ontology header (following William's example). iucn:distribution
-  is declared as rdfs:subPropertyOf skos:note.
+* Accepts optional `--biome-translations <csv>` and `--realm-translations <csv>`
+  for languages that aren't present in the Excel (es, fr). The CSV schema is:
+      <code_col>, language, name, date
+  where <code_col> is biome_code or realm_code (any column ending in "code"
+  is accepted). Translations only ADD missing prefLabels — never overwrite an
+  existing one from the Excel.
+* New "Field descriptions" tab support: when an es/fr label is added from a
+  translations CSV but no definition exists in that language, a placeholder
+  definition is emitted (sourced from the Field descriptions tab) and tagged
+  with skos:editorialNote = "Placeholder — translation pending"@<lang> so it
+  can be located and replaced later.
+* CLI moved to argparse.
 
 Usage
 -----
     pip install pandas openpyxl rdflib
-    python excel_to_skos_rdf.py <input.xlsx>
+    python excel_to_skos_v4.py <input.xlsx> \
+        [--biome-translations biome-translations.csv] \
+        [--realm-translations realm-translations.csv]
 """
 
+import argparse
+import os
 import sys
 import re
 from collections import defaultdict
@@ -41,6 +43,7 @@ SCHEMA = Namespace("https://schema.org/")
 FOAF   = Namespace("http://xmlns.com/foaf/0.1/")
 
 TRANSLATABLE_LANGS = ("en", "es", "fr")
+PLACEHOLDER_NOTE   = "Placeholder — translation pending"
 
 
 # ── Literal helpers ───────────────────────────────────────────────────────────
@@ -71,14 +74,13 @@ def lang_lit(val, lang):
 
 def slugify(text):
     text = str(text).strip()
-    # Replace dots first so "F1.1" → "F1_1" (not "F11")
     text = text.replace(".", "_")
     text = re.sub(r"[^\w\s-]", "", text)
     text = re.sub(r"[\s_-]+", "_", text)
     return text.strip("_")
 
 def safe(val):
-    if val is None or pd.isna(val):
+    if val is None or (hasattr(pd, "isna") and pd.isna(val)):
         return None
     s = str(val).strip()
     return s if s else None
@@ -95,11 +97,7 @@ def col(df, *candidates):
     return None
 
 def strip_code_prefix(name, code):
-    """Turn 'F1.1 Permanent upland streams' + code 'F1.1' → 'Permanent upland streams'.
-    Also handles 'F1. Rivers and streams biome' + 'F1' → 'Rivers and streams biome'.
-    Critically, REQUIRES a separator (whitespace/./-/:) after the code, so that
-    a name like 'Atmospheric' with code 'A' is left untouched (not chopped to
-    'tmospheric')."""
+    """Turn 'F1.1 Permanent upland streams' + code 'F1.1' → 'Permanent upland streams'."""
     if not name:
         return name
     pat = re.compile(r"^" + re.escape(code) + r"[\s.:\-]+")
@@ -113,7 +111,6 @@ def normalize_version(v):
     return m.group(0) if m else v
 
 def localized_url(url, lang):
-    """Insert /es/ or /fr/ into a global-ecosystems.org URL for non-en languages."""
     if not url or lang == "en":
         return url
     return re.sub(
@@ -130,6 +127,102 @@ def realm_from_biome_code(bcode):
     return m.group(1) if m else None
 
 
+# ── External-translation loaders ──────────────────────────────────────────────
+
+def load_translations_csv(path):
+    """Load a translations CSV into {(code, lang): {"name": ..., "date": ...}}.
+
+    Expected columns (case-insensitive):
+        - one column ending in "code" (e.g. biome_code, realm_code, code)
+        - language (or lang)
+        - name
+        - date (optional)
+    """
+    if not path:
+        return {}
+    if not os.path.exists(path):
+        print(f"  WARNING: translations file not found: {path}")
+        return {}
+
+    df = pd.read_csv(path, dtype=str)
+    df.columns = [c.strip().lower() for c in df.columns]
+
+    code_col = next(
+        (c for c in df.columns if c == "code" or c.endswith("_code")),
+        None,
+    )
+    lang_col = next((c for c in df.columns if c in ("language", "lang")), None)
+    name_col = next((c for c in df.columns if c == "name"), None)
+    date_col = next((c for c in df.columns if c in ("date", "date_modified", "modified")), None)
+
+    if not (code_col and lang_col and name_col):
+        print(f"  WARNING: {path} is missing required columns (code, language, name)")
+        return {}
+
+    out = {}
+    for _, row in df.iterrows():
+        code = safe(row[code_col])
+        lang = safe(row[lang_col])
+        name = safe(row[name_col])
+        if not (code and lang and name):
+            continue
+        if lang not in TRANSLATABLE_LANGS:
+            continue
+        date = safe(row[date_col]) if date_col else None
+        out[(code, lang)] = {"name": name, "date": date}
+    print(f"  Loaded {len(out)} translation rows from {os.path.basename(path)}")
+    return out
+
+
+def load_field_descriptions(path):
+    """Read the 'Field descriptions' tab into a dict {field_name_lower: description}.
+
+    Layout assumed: a column identifying the field/concept ('field', 'name',
+    'term', or 'concept') and a column with the description ('description',
+    'definition', or 'field_description'). If the tab is missing or the
+    columns can't be inferred, returns {}.
+    """
+    try:
+        xl = pd.ExcelFile(path)
+    except Exception as e:
+        print(f"  WARNING: could not open workbook for field descriptions: {e}")
+        return {}
+
+    fd_sheet = next(
+        (s for s in xl.sheet_names if "field" in s.lower() and "desc" in s.lower()),
+        None,
+    )
+    if not fd_sheet:
+        return {}
+
+    df = read_sheet(path, fd_sheet)
+    c_field = col(df, "field", "field_name", "name", "term", "concept")
+    c_desc  = col(df, "description", "definition", "field_description")
+    if not c_field or not c_desc:
+        print(f"  WARNING: 'Field descriptions' tab present but could not infer columns "
+              f"(saw {list(df.columns)})")
+        return {}
+
+    out = {}
+    for _, row in df.iterrows():
+        f = safe(row[c_field])
+        d = safe(row[c_desc])
+        if f and d:
+            out[f.lower()] = d
+    print(f"  Loaded {len(out)} field descriptions")
+    return out
+
+
+def placeholder_definition(field_descs, key_candidates):
+    """Pick the first matching placeholder description for a class."""
+    if not field_descs:
+        return None
+    for k in key_candidates:
+        if k.lower() in field_descs:
+            return field_descs[k.lower()]
+    return None
+
+
 # ── Concept registration ──────────────────────────────────────────────────────
 
 def add_concept(g, uri, extra_type=None):
@@ -137,13 +230,10 @@ def add_concept(g, uri, extra_type=None):
     g.add((uri, RDF.type, SKOS.Concept))
     if extra_type:
         g.add((uri, RDF.type, extra_type))
-    # Single canonical identifier — the concept is language-independent.
-    # Language-specific web pages go on foaf:page instead.
     g.add((uri, DCTERMS.identifier, xsd_uri(str(uri))))
 
 
 def add_language_version(g, uri, lang, version, modified):
-    """Attach per-language provenance as a blank node. Returns the blank node."""
     bn = BNode()
     g.add((uri, IUCN["languageVersion"], bn))
     g.add((bn, DCTERMS.language, Literal(lang, datatype=XSD.language)))
@@ -211,67 +301,55 @@ def add_class_definitions(g):
             g.add((cls, DCTERMS.source, URIRef(d["source"])))
 
 
-# ── Ontology header: property definitions (per William's email) ──────────────
+# ── Ontology header: property definitions ────────────────────────────────────
 
 PROPERTY_DEFS = {
-    # ── Code properties ──
     "realmCode": {
         "label": "realm code",
         "comment": "Code assigned to a Realm in the IUCN Global Ecosystem Typology.",
-        "domain": IUCN["Realm"],
-        "range": XSD.string,
+        "domain": IUCN["Realm"], "range": XSD.string,
     },
     "realmType": {
         "label": "realm type",
         "comment": "Type designation of the Realm (e.g. core or transitional).",
-        "domain": IUCN["Realm"],
-        "range": XSD.string,
+        "domain": IUCN["Realm"], "range": XSD.string,
     },
     "biomeCode": {
         "label": "biome code",
         "comment": "Code assigned to a Biome in the IUCN Global Ecosystem Typology.",
-        "domain": IUCN["Biome"],
-        "range": XSD.string,
+        "domain": IUCN["Biome"], "range": XSD.string,
     },
     "efgCode": {
         "label": "ecosystem functional group code",
         "comment": "Code assigned to an Ecosystem Functional Group in the IUCN Global Ecosystem Typology.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": XSD.string,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": XSD.string,
     },
-    # ── Narrative properties ──
     "keyFeatures": {
         "label": "key features",
         "comment": "Characteristic ecological and functional features of the ecosystem functional group.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": RDFS.Literal,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": RDFS.Literal,
     },
     "distributionSummary": {
         "label": "distribution summary",
         "comment": "Summary description of the distribution of the ecosystem functional group.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": RDFS.Literal,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": RDFS.Literal,
     },
     "ecosystemProperties": {
         "label": "ecosystem properties",
         "comment": "Description of notable structural or functional properties of the ecosystem functional group.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": RDFS.Literal,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": RDFS.Literal,
     },
     "ecologicalDrivers": {
         "label": "ecological drivers",
         "comment": "Description of the main ecological drivers shaping the ecosystem functional group.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": RDFS.Literal,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": RDFS.Literal,
     },
     "distribution": {
         "label": "distribution",
         "comment": "Detailed description of the geographic or environmental distribution of the ecosystem functional group.",
-        "domain": IUCN["EcosystemFunctionalGroup"],
-        "range": RDFS.Literal,
+        "domain": IUCN["EcosystemFunctionalGroup"], "range": RDFS.Literal,
         "subproperty_of": SKOS.note,
     },
-    # ── Provenance properties ──
     "languageVersion": {
         "label": "language version",
         "comment": (
@@ -293,8 +371,7 @@ PROPERTY_DEFS = {
         "label": "latest modification language",
         "comment": (
             "Language code (ISO 639-1) of the translation whose modification "
-            "date was used as the top-level dcterms:modified value. Provided "
-            "as a flat sibling of dcterms:modified for easy querying."
+            "date was used as the top-level dcterms:modified value."
         ),
         "range": XSD.language,
     },
@@ -314,25 +391,43 @@ def add_property_definitions(g):
             g.add((p, RDFS.subPropertyOf, d["subproperty_of"]))
 
 
-# ── Per-concept emission helper for multilingual rows ─────────────────────────
+# ── Per-concept emission helpers ──────────────────────────────────────────────
 
 def emit_translatable(g, uri, lang, fields):
     for pred, val in fields:
         if val:
             g.add((uri, pred, lang_lit(val, lang)))
 
-
 def get_pref_label(g, uri, lang):
-    """Return the prefLabel string for a given language, or None."""
     for o in g.objects(uri, SKOS.prefLabel):
         if isinstance(o, Literal) and o.language == lang:
             return str(o)
     return None
 
+def has_definition_in_lang(g, uri, lang):
+    for o in g.objects(uri, SKOS.definition):
+        if isinstance(o, Literal) and o.language == lang:
+            return True
+    return False
+
+
+def merge_translation(g, uri, code, lang, name, placeholder_def):
+    """Add prefLabel + (optional placeholder) definition for one (concept, lang).
+    Never overwrites existing labels/definitions in the same language."""
+    if not get_pref_label(g, uri, lang):
+        g.add((uri, SKOS.prefLabel, lang_lit(strip_code_prefix(name, code), lang)))
+    if placeholder_def and not has_definition_in_lang(g, uri, lang):
+        g.add((uri, SKOS.definition, lang_lit(placeholder_def, lang)))
+        g.add((uri, SKOS.editorialNote, lang_lit(PLACEHOLDER_NOTE, lang)))
+
 
 # ── Build graph ───────────────────────────────────────────────────────────────
 
-def build_graph(path):
+def build_graph(path, biome_trans=None, realm_trans=None, field_descs=None):
+    biome_trans = biome_trans or {}
+    realm_trans = realm_trans or {}
+    field_descs = field_descs or {}
+
     g = Graph()
     g.bind("rdf",     RDF)
     g.bind("rdfs",    RDFS)
@@ -360,7 +455,10 @@ def build_graph(path):
     sheet_names = xl.sheet_names
     print(f"Found sheets: {sheet_names}")
 
-    # ── Level 1: Realms (single language, English) ───────────────────────────
+    realm_placeholder = placeholder_definition(field_descs, ["realm", "realm description", "realm definition"])
+    biome_placeholder = placeholder_definition(field_descs, ["biome", "functional biome", "biome description", "biome definition"])
+
+    # ── Level 1: Realms ──────────────────────────────────────────────────────
     realm_sheet = next((s for s in sheet_names if "realm" in s.lower()), None)
     if realm_sheet:
         df = read_sheet(path, realm_sheet)
@@ -391,10 +489,20 @@ def build_graph(path):
                 g.add((uri, SKOS.prefLabel, lang_lit(strip_code_prefix(name, code), "en")))
             if desc:
                 g.add((uri, SKOS.definition, lang_lit(desc, "en")))
+
+        # Merge realm translations from external CSV (es, fr, …)
+        if realm_trans:
+            print(f"  Merging {len(realm_trans)} realm translations from CSV")
+            for (rcode, lang), payload in realm_trans.items():
+                uri = BASE[f"Realm_{slugify(rcode)}"]
+                if (uri, RDF.type, SKOS.Concept) not in g:
+                    print(f"    skipping unknown realm code: {rcode}")
+                    continue
+                merge_translation(g, uri, rcode, lang, payload["name"], realm_placeholder)
     else:
         print("  WARNING: No Realms sheet found.")
 
-    # ── Level 2: Biomes (multilingual) ────────────────────────────────────────
+    # ── Level 2: Biomes ──────────────────────────────────────────────────────
     biome_sheet = next((s for s in sheet_names if "biome" in s.lower()), None)
     if biome_sheet:
         df = read_sheet(path, biome_sheet)
@@ -469,10 +577,25 @@ def build_graph(path):
             if latest_lang is not None:
                 g.add((uri, IUCN["latestModificationLanguage"],
                        Literal(latest_lang, datatype=XSD.language)))
+
+        # Merge biome translations from external CSV
+        if biome_trans:
+            print(f"  Merging {len(biome_trans)} biome translations from CSV")
+            for (bcode, lang), payload in biome_trans.items():
+                uri = BASE[f"Biome_{slugify(bcode)}"]
+                if (uri, RDF.type, SKOS.Concept) not in g:
+                    print(f"    skipping unknown biome code: {bcode}")
+                    continue
+                merge_translation(g, uri, bcode, lang, payload["name"], biome_placeholder)
+
+                # Track the translation date as a per-language version blank node
+                dmod = xsd_date(payload.get("date"))
+                if dmod is not None:
+                    add_language_version(g, uri, lang, None, dmod)
     else:
         print("  WARNING: No Biomes sheet found.")
 
-    # ── Level 3: EFGs (multilingual) ─────────────────────────────────────────
+    # ── Level 3: EFGs ────────────────────────────────────────────────────────
     efg_by_biome = defaultdict(list)
 
     efg_sheet = next(
@@ -506,7 +629,6 @@ def build_graph(path):
             g.add((uri, SKOS.notation, xsd_str(code)))
             g.add((uri, IUCN["efgCode"], xsd_str(code)))
 
-            # Biome (direct parent) and Realm (transitive ancestor)
             parts = code.split(".")
             if len(parts) >= 2:
                 bcode = parts[0]
@@ -570,7 +692,6 @@ def build_graph(path):
                 g.add((uri, IUCN["latestModificationLanguage"],
                        Literal(latest_lang, datatype=XSD.language)))
 
-        # Sibling EFGs in the same biome → skos:related (symmetric)
         for bcode, uris in efg_by_biome.items():
             for i, a in enumerate(uris):
                 for b in uris[i + 1:]:
@@ -579,7 +700,7 @@ def build_graph(path):
     else:
         print("  WARNING: No EFG sheet found.")
 
-    # ── Level 3: Short Descriptions (English-only sheet, with URL) ───────────
+    # ── Level 3: Short Descriptions ──────────────────────────────────────────
     short_sheet = next(
         (s for s in sheet_names if "short" in s.lower() and "desc" in s.lower()),
         None,
@@ -618,12 +739,10 @@ def build_graph(path):
             url     = safe(row[c_url])     if c_url     else None
             bcode   = safe(row[c_bcode])   if c_bcode   else None
 
-            # prefLabel only if not already set from EFG sheet
             if name and not list(g.triples((uri, SKOS.prefLabel, None))):
                 g.add((uri, SKOS.prefLabel,
                        lang_lit(strip_code_prefix(name, code), "en")))
 
-            # altLabel: skip if equal to the English prefLabel
             if sname:
                 short_label = strip_code_prefix(sname, code)
                 en_pref = get_pref_label(g, uri, "en")
@@ -639,8 +758,6 @@ def build_graph(path):
             if dcre is not None:
                 g.add((uri, DCTERMS.created, dcre))
 
-            # Per-language web pages (en, es, fr) — these are
-            # representations of the concept, not identifiers.
             if url:
                 for lang in TRANSLATABLE_LANGS:
                     g.add((uri, FOAF["page"], URIRef(localized_url(url, lang))))
@@ -658,12 +775,23 @@ def build_graph(path):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python excel_to_skos_rdf.py <input.xlsx>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Convert IUCN GET Excel workbook to SKOS/RDF."
+    )
+    parser.add_argument("xlsx", help="Path to the IUCN GET workbook (.xlsx)")
+    parser.add_argument(
+        "--biome-translations",
+        default=None,
+        help="Optional CSV with biome name translations (columns: biome_code, language, name, date)",
+    )
+    parser.add_argument(
+        "--realm-translations",
+        default=None,
+        help="Optional CSV with realm name translations (columns: realm_code, language, name, date)",
+    )
+    args = parser.parse_args()
 
-    import os
-    path = sys.argv[1]
+    path = args.xlsx
     in_dir, in_name = os.path.split(os.path.abspath(path))
     stem = in_name.rsplit(".", 1)[0]
 
@@ -671,7 +799,16 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
 
     print(f"\nReading: {path}")
-    g = build_graph(path)
+    biome_trans = load_translations_csv(args.biome_translations)
+    realm_trans = load_translations_csv(args.realm_translations)
+    field_descs = load_field_descriptions(path)
+
+    g = build_graph(
+        path,
+        biome_trans=biome_trans,
+        realm_trans=realm_trans,
+        field_descs=field_descs,
+    )
 
     ttl_path = os.path.join(out_dir, f"{stem}_skos.ttl")
     rdf_path = os.path.join(out_dir, f"{stem}_skos.rdf")

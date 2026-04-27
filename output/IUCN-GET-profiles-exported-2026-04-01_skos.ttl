@@ -11,39 +11,25 @@
 iucn:Biome a rdfs:Class ;
     rdfs:label "Functional biome"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "A component of a realm united by one or a few common major ecological drivers that regulate major ecological functions. Biomes are derived from the top-down by subdivision of realms"@en ;
+    rdfs:comment "A component of a realm united by broad features of ecosystem structure and one or a few common major ecological drivers that regulate major ecological functions, derived from the top-down by subdivision of realms (level 1)."@en ;
     skos:scopeNote "In GET, biome is different from the use of biome in other contexts — it is defined functionally rather than by vegetation physiognomy or climate alone."@en .
 
 iucn:EcosystemFunctionalGroup a rdfs:Class ;
     rdfs:label "Ecosystem Functional Group"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "A group of related ecosystems within a biome that share common ecological drivers promoting convergence of biotic traits that characterise the group. Functional groups are derived from the top-down by subdivision of biomes."@en ;
+    rdfs:comment "A group of related ecosystems within a biome that share common ecological drivers, which in turn promote similar biotic traits that characterise the group. Derived from the top-down by subdivision of biomes."@en ;
     skos:altLabel "EFG"@en .
 
 iucn:Realm a rdfs:Class ;
     rdfs:label "Realm"@en ;
     dcterms:source <https://global-ecosystems.org/> ;
-    rdfs:comment "A major component of the biosphere. Each realm has a distinct combination of assembly filters and ecological traits. Five core realms can be separated by their substrate: terrestrial, freshwater, marine, subterranean, atmospheric. Transitional realms accommodate continuous variation among the core realms."@en ;
-    iucn:biomeCode a rdf:Property ;
+    rdfs:comment "One of five major components of the biosphere that differ fundamentally in ecosystem organisation and function: terrestrial, freshwater, marine, subterranean, atmospheric and combinations of these (transitional realms). Because variation in nature is continuous, we also include transitional realms, where the realms meet and have their own unique organisation and function."@en .
+
+iucn:biomeCode a rdf:Property ;
     rdfs:label "biome code"@en ;
     rdfs:comment "Code assigned to a Biome in the IUCN Global Ecosystem Typology."@en ;
     rdfs:domain iucn:Biome ;
     rdfs:range xsd:string .
-
-iucnget:RegionalEcosystemSubgroup a rdfs:Class ;
-    rdfs:label "Regional ecosystem subgroups"@en ;
-    rdfs:comment "An ecoregional expression of an ecosystem functional group derived from the top-down by subdivision of Ecosystem Functional Groups. They are proxies for compositionally distinctive geographic variants that occupy different areas within the distribution of a functional group."@en ;
-    dct:source "IUCN Global Ecosystem Typology".
-
-iucnget:GlobalEcosystemType a rdfs:Class ;
-    rdfs:label "Global ecosystem type"@en ;
-    rdfs:comment "A complex of organisms and their associated physical environment within an area occupied by an ecosystem functional group. Global ecosystem types grouped into the same ecosystem functional group share similar ecological processes, but exhibit substantial difference in biotic composition. They are derived from the bottom-up, either directly from ground observations or by aggregation of subglobal ecosystem types."@en ;
-    dct:source "IUCN Global Ecosystem Typology".
-
-iucnget:SubglobalEcosystemType a rdfs:Class ;
-    rdfs:label "Subglobal ecosystem type"@en ;
-    rdfs:comment "A subunit or nested group of subunits within a global ecosystem type, which therefore exhibit a greater degree of compositional homogeneity and resemblance to one another than global ecosystem types (level 5). These represent units of established classifications, in some cases arranged in a sub-hierarchy of multiple levels, derived directly from ground observations."@en ;
-    dct:source "IUCN Global Ecosystem Typology".
 
 iucn:distribution a rdf:Property ;
     rdfs:label "distribution"@en ;
@@ -89,7 +75,7 @@ iucn:languageVersion a rdf:Property ;
 
 iucn:latestModificationLanguage a rdf:Property ;
     rdfs:label "latest modification language"@en ;
-    rdfs:comment "Language code (ISO 639-1) of the translation whose modification date was used as the top-level dcterms:modified value. Provided as a flat sibling of dcterms:modified for easy querying."@en ;
+    rdfs:comment "Language code (ISO 639-1) of the translation whose modification date was used as the top-level dcterms:modified value."@en ;
     rdfs:range xsd:language .
 
 iucn:latestUpdate a rdf:Property ;
@@ -168,9 +154,13 @@ l\\'activité humaine."""@fr ;
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nd27d17d66f584bf6819ae074213ffea6 ;
+        _:Nb44e9b91fdf848868f53a4ccf6b46c34,
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nd27d17d66f584bf6819ae074213ffea6 .
+    iucn:latestUpdate _:Nb44e9b91fdf848868f53a4ccf6b46c34 .
 
 base:Biome_S2 a rdfs:Resource,
         skos:Concept,
@@ -219,15 +209,19 @@ des modifications structurelles après la fin de leur utilisation active."""@fr 
         "Anthropogenic subterranean voids biome"@es,
         "Anthropogenic subterranean voids biome"@fr ;
     iucn:biomeCode "S2"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne32d04a5af4c4d68832306256e8f92be ;
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:N8404c9d2f95346f09a7f705bd9ffb02b,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne32d04a5af4c4d68832306256e8f92be .
+    iucn:latestUpdate _:N8404c9d2f95346f09a7f705bd9ffb02b .
 
 base:EFG_MT3_1 a rdfs:Resource,
         skos:Concept,
@@ -310,15 +304,15 @@ contiennent généralement une proportion plus élevée d\\'espèces non
 indigènes que les substrats naturels qu\\'elles remplacent."""@fr ;
     iucn:efgCode "MT3.1"^^xsd:string ;
     iucn:keyFeatures "Coastal infrastructure, such as seawalls, breakwaters, pilings and piers, extending from the intertidal to subtidal, supporting cosmopolitan sessile and mobile invertebrates and macroalgae on their hard surfaces, and in some instances serving as artificial reefs for fish"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N4dc6b1ff4d3a4e60b6c0c18c0c3f4359 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd7d32fa0cfe64d2da79d41bfb2810675 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4dc6b1ff4d3a4e60b6c0c18c0c3f4359 .
+    iucn:latestUpdate _:Nd7d32fa0cfe64d2da79d41bfb2810675 .
 
 base:EFG_S2_1 a rdfs:Resource,
         skos:Concept,
@@ -397,15 +391,15 @@ ont des cycles de vie qui nécessitent l\\'utilisation des deux
 environnements."""@fr ;
     iucn:efgCode "S2.1"^^xsd:string ;
     iucn:keyFeatures "Dry or humid subterranean voids created by mining or infrastructure development and colonised by opportunistic microbes, invertebrates and sometimes vertebrates."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ncfed0d4311a44b4095f0e2fb38832934 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ncd15ea91cf90445ea84423a37ba48ed1 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ncfed0d4311a44b4095f0e2fb38832934 .
+    iucn:latestUpdate _:Ncd15ea91cf90445ea84423a37ba48ed1 .
 
 base:Biome_M4 a rdfs:Resource,
         skos:Concept,
@@ -453,14 +447,18 @@ prédateurs pélagiques, qui se nourrissent à proximité."""@fr ;
         "Anthropogenic marine biome"@fr ;
     iucn:biomeCode "M4"^^xsd:string ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:N79a634762b1046df9d4c894c6169fa34,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na47dd9de4d304135a0eb835fe11aea5b,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na47dd9de4d304135a0eb835fe11aea5b .
+    iucn:latestUpdate _:N79a634762b1046df9d4c894c6169fa34 .
 
 base:Biome_MT2 a rdfs:Resource,
         skos:Concept,
@@ -520,15 +518,19 @@ mammifères terrestres."""@fr ;
         "Supralittoral coastal biome"@es,
         "Supralittoral coastal biome"@fr ;
     iucn:biomeCode "MT2"^^xsd:string ;
-    iucn:languageVersion _:N20ff9d6cbc654380aaf90506fc30c1d6,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N5e549bdafd0542fc83e401a93bdf0705,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N20ff9d6cbc654380aaf90506fc30c1d6 .
+    iucn:latestUpdate _:N5e549bdafd0542fc83e401a93bdf0705 .
 
 base:Biome_S1 a rdfs:Resource,
         skos:Concept,
@@ -574,15 +576,19 @@ incursions d\\'eaux douces ou marines génèrent des biomes de transition
         "Subterranean lithic biome"@es,
         "Subterranean lithic biome"@fr ;
     iucn:biomeCode "S1"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N745ef8ec7f114ed5b6cdcb77c3b458c9 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N997d18356780483493e0dfba329c2ad8,
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N745ef8ec7f114ed5b6cdcb77c3b458c9 .
+    iucn:latestUpdate _:N997d18356780483493e0dfba329c2ad8 .
 
 base:Biome_SF1 a rdfs:Resource,
         skos:Concept,
@@ -639,15 +645,19 @@ d\\'endémisme."""@fr ;
         "Subterranean freshwaters biome"@es,
         "Subterranean freshwaters biome"@fr ;
     iucn:biomeCode "SF1"^^xsd:string ;
-    iucn:languageVersion _:N60ce6d62504448d4be80656410a3e1db,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nc73abc6e9b68428585bf6ccdbf9f9733,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N60ce6d62504448d4be80656410a3e1db .
+    iucn:latestUpdate _:Nc73abc6e9b68428585bf6ccdbf9f9733 .
 
 base:Biome_SF2 a rdfs:Resource,
         skos:Concept,
@@ -700,15 +710,19 @@ essentiellement transitoire, reflète celui des eaux d\\'alimentation."""@fr ;
         "Anthropogenic subterranean freshwaters biome"@es,
         "Anthropogenic subterranean freshwaters biome"@fr ;
     iucn:biomeCode "SF2"^^xsd:string ;
-    iucn:languageVersion _:N168f613ab6c74b8a9e2d8f630135d275,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nae2409420950468da15a984e76a7875e,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N168f613ab6c74b8a9e2d8f630135d275 .
+    iucn:latestUpdate _:Nae2409420950468da15a984e76a7875e .
 
 base:EFG_M4_1 a rdfs:Resource,
         skos:Concept,
@@ -796,15 +810,15 @@ marins, qui réagissent de la même manière aux dispositifs d\\'attraction
 des poissons et aux objets dérivants."""@fr ;
     iucn:efgCode "M4.1"^^xsd:string ;
     iucn:keyFeatures "Hard surfaces of oil and gas infrastructure, artificial reefs and wrecks form habitat for sessile filter feeders, invertebrates and some reef fish."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N80a98964ecd343edbe6af5de232e78d8,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nbcf8222d4bc34b49ab5863a45085f57f,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N80a98964ecd343edbe6af5de232e78d8 .
+    iucn:latestUpdate _:Nbcf8222d4bc34b49ab5863a45085f57f .
 
 base:EFG_M4_2 a rdfs:Resource,
         skos:Concept,
@@ -889,15 +903,15 @@ pathogènes, ce qui permet à l\\'écosystème de s\\'étendre au-delà des
 limites de l\\'infrastructure."""@fr ;
     iucn:efgCode "M4.2"^^xsd:string ;
     iucn:keyFeatures "High density, productive, enclosed systems with variable permeability, for breeding and harvesting marine species. Allochthonous nutrients from human sources is common."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N491ac273968443ae8e5a2ee7e9d645ec,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd7779f979b814250948961fd6a8c53e3,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N491ac273968443ae8e5a2ee7e9d645ec .
+    iucn:latestUpdate _:Nd7779f979b814250948961fd6a8c53e3 .
 
 base:EFG_MT2_1 a rdfs:Resource,
         skos:Concept,
@@ -972,15 +986,15 @@ régénérateurs in situ qui persistent souvent pendant les courts
 intervalles entre les perturbations successives."""@fr ;
     iucn:efgCode "MT2.1"^^xsd:string ;
     iucn:keyFeatures "Coastal scrub limited by salinity, water deficit and disturbances (e.g. cliff collapse). Strong gradients from sea to land and highly mobile fauna."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N86ea3735f6364f2dba07381dd0796d06,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Nf6fb6ef5cb084acfae0a1285423d505e ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N86ea3735f6364f2dba07381dd0796d06 .
+    iucn:latestUpdate _:Nf6fb6ef5cb084acfae0a1285423d505e .
 
 base:EFG_MT2_2 a rdfs:Resource,
         skos:Concept,
@@ -1065,15 +1079,15 @@ nutriments entre les zones d\\'alimentation marines et les zones de
 reproduction terrestres peuvent se produire sur de longues distances."""@fr ;
     iucn:efgCode "MT2.2"^^xsd:string ;
     iucn:keyFeatures "Localised areas of bare or vegetated ground with diverse microbial communities at the ocean interface receiving massive nutrient subsidies and disturbance from large concentrations of roosting or nesting seabirds and pinnipeds that function as mobile links between land and sea"@en ;
-    iucn:languageVersion _:N04cb8653a637440f89b87f9f969c467d,
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N81840a94951f47b999733fa8b03473ff,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N04cb8653a637440f89b87f9f969c467d .
+    iucn:latestUpdate _:N81840a94951f47b999733fa8b03473ff .
 
 base:EFG_S1_1 a rdfs:Resource,
         skos:Concept,
@@ -1163,12 +1177,12 @@ systèmes de grottes."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N84aa3c1c93924b709a9563cf7f523362,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne43ea56f504942929db85ff6ec6c71ca ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N84aa3c1c93924b709a9563cf7f523362 .
+    iucn:latestUpdate _:Ne43ea56f504942929db85ff6ec6c71ca .
 
 base:EFG_S1_2 a rdfs:Resource,
         skos:Concept,
@@ -1252,15 +1266,15 @@ s\\'attendre à ce qu\\'il soit élevé en raison de l\\'insularité de ces
 écosystèmes."""@fr ;
     iucn:efgCode "S1.2"^^xsd:string ;
     iucn:keyFeatures "Microbial systems within lithic matrices and interstitial spaces with truncated trophic networks founded on lithautotrophs and lacking photoautotrophs (except near surface) and high-order predators."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N86963802a2184e569d87400a9929e2f6,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Na3a4bb94316a4504aad4c95d467fdcea ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N86963802a2184e569d87400a9929e2f6 .
+    iucn:latestUpdate _:Na3a4bb94316a4504aad4c95d467fdcea .
 
 base:EFG_SF1_1 a rdfs:Resource,
         skos:Concept,
@@ -1344,12 +1358,12 @@ surface où la nourriture est abondante."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N48bc6a77b03b4913904b0c03971cfd03,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nd82fe5cd8e41405c8d539efe389f4274 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nd82fe5cd8e41405c8d539efe389f4274 .
+    iucn:latestUpdate _:N48bc6a77b03b4913904b0c03971cfd03 .
 
 base:EFG_SF1_2 a rdfs:Resource,
         skos:Concept,
@@ -1440,9 +1454,9 @@ répétées ou de la fragmentation de l\\'aquifère."""@fr ;
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne2a0eb05cef74c179485427bd79d92a3 ;
+        _:Ncee5c481e5584d8ea14759a66a251202 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne2a0eb05cef74c179485427bd79d92a3 .
+    iucn:latestUpdate _:Ncee5c481e5584d8ea14759a66a251202 .
 
 base:EFG_SF2_1 a rdfs:Resource,
         skos:Concept,
@@ -1528,15 +1542,15 @@ faibles nutriments et à la turbulence étant typique des conduites d\\'eau
 minérotrophes à grande vitesse."""@fr ;
     iucn:efgCode "SF2.1"^^xsd:string ;
     iucn:keyFeatures "Artificial flowing waterbodies that carry water with variable flow regime, limited light, sometimes with high carbon and nutrients supporting opportunities aquatic detritivores and predators"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N7d618927129c4efd87e22d7c9983044b,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Nd164f06a63bb4d50a4f4a4c079aad2c7 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N7d618927129c4efd87e22d7c9983044b .
+    iucn:latestUpdate _:Nd164f06a63bb4d50a4f4a4c079aad2c7 .
 
 base:EFG_SF2_2 a rdfs:Resource,
         skos:Concept,
@@ -1615,7 +1629,7 @@ susceptibles d\\'accueillir des vertébrés, à moins qu\\'ils ne soient
 reliés à des eaux de surface offrant un moyen de colonisation."""@fr ;
     iucn:efgCode "SF2.2"^^xsd:string ;
     iucn:keyFeatures "Underground largely static low-productivity waterbodies often with large of warm groundwater or seepage, colonised by opportunistic microbes and invertebrates"@en ;
-    iucn:languageVersion _:N3b5b722e16e442bd82b5a0a2e2dbabca,
+    iucn:languageVersion _:N199fe6422524466baaa03742c3d00099,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -1623,7 +1637,7 @@ reliés à des eaux de surface offrant un moyen de colonisation."""@fr ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N3b5b722e16e442bd82b5a0a2e2dbabca .
+    iucn:latestUpdate _:N199fe6422524466baaa03742c3d00099 .
 
 base:Biome_FM1 a rdfs:Resource,
         skos:Concept,
@@ -1682,15 +1696,19 @@ poissons et de sites de reproduction pour les oiseaux."""@fr ;
         "Semi-confined transitional waters biome"@es,
         "Semi-confined transitional waters biome"@fr ;
     iucn:biomeCode "FM1"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:N48047255b5dc49449728d3dff36e34fd,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N8b7d16dd586b4ef39b99642df8e89bdf,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N8b7d16dd586b4ef39b99642df8e89bdf .
+    iucn:latestUpdate _:N48047255b5dc49449728d3dff36e34fd .
 
 base:Biome_MFT1 a rdfs:Resource,
         skos:Concept,
@@ -1742,14 +1760,18 @@ dépôt dans le monde entier."""@fr ;
         "Brackish tidal biome"@fr ;
     iucn:biomeCode "MFT1"^^xsd:string ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:Ne1dfa6c1bdb049f692f882c82989cef2,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc221fc1672d945f59348417fcf6e77af ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc221fc1672d945f59348417fcf6e77af .
+    iucn:latestUpdate _:Ne1dfa6c1bdb049f692f882c82989cef2 .
 
 base:Biome_SM1 a rdfs:Resource,
         skos:Concept,
@@ -1818,15 +1840,19 @@ environnement)."""@fr ;
         "Subterranean tidal biome"@es,
         "Subterranean tidal biome"@fr ;
     iucn:biomeCode "SM1"^^xsd:string ;
-    iucn:languageVersion _:N63374c459a814ade9dca1385184d9df0,
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:Ncc10cc6fb3c1464fb37ccdf596bc7887,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N63374c459a814ade9dca1385184d9df0 .
+    iucn:latestUpdate _:Ncc10cc6fb3c1464fb37ccdf596bc7887 .
 
 base:EFG_FM1_1 a rdfs:Resource,
         skos:Concept,
@@ -1920,15 +1946,15 @@ séquestrant dans les sédiments du fond marin à un rythme plus lent que
 les bras de mer aux eaux froides."""@fr ;
     iucn:efgCode "FM1.1"^^xsd:string ;
     iucn:keyFeatures "Strong gradients between adjacent terrestrial and freshwater systems,e.g. fjords. Seasonaly abundant plankton, jellies, fish and mammals."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N249f1a7155e74c889ae51e2f6c51445d,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N99e743a983b04288b901f26d802e2e7b ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N99e743a983b04288b901f26d802e2e7b .
+    iucn:latestUpdate _:N249f1a7155e74c889ae51e2f6c51445d .
 
 base:EFG_FM1_2 a rdfs:Resource,
         skos:Concept,
@@ -2019,12 +2045,12 @@ distinctes dans l\\'environnement marin."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6d885f33a0124a4ba8a474241540551f,
+        _:Nb7a1b3f84e36442fa67ff39e09de576d,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6d885f33a0124a4ba8a474241540551f .
+    iucn:latestUpdate _:Nb7a1b3f84e36442fa67ff39e09de576d .
 
 base:EFG_FM1_3 a rdfs:Resource,
         skos:Concept,
@@ -2102,15 +2128,15 @@ occupent les fonds sablonneux de certaines lagunes, mais les mangroves
 (MFT1.2) sont absentes à moins que l\\'entrée ne soit ouverte."""@fr ;
     iucn:efgCode "FM1.3"^^xsd:string ;
     iucn:keyFeatures "Shallow water systems, highly variability depending on opening or closing of lagoonal entrance. Detritus-based foodwebs with plankton, invertebrates and small fish."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N3a72a172db444da4b3fb5b1e32cadad2,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N3ba0f6cb651f4349bf01f1a97df81cc5,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N3ba0f6cb651f4349bf01f1a97df81cc5 .
+    iucn:latestUpdate _:N3a72a172db444da4b3fb5b1e32cadad2 .
 
 base:EFG_MFT1_1 a rdfs:Resource,
         skos:Concept,
@@ -2193,15 +2219,15 @@ traduisent dans l\\'espace par d\\'importantes fluctuations dans la
 mosaïque de types de parcelles qui composent les écosystèmes deltaïques."""@fr ;
     iucn:efgCode "MFT1.1"^^xsd:string ;
     iucn:keyFeatures "Depositional, mosaic systems with strong gradients between terrestrial, freshwater and marine elements. Productive with diverse plankton, fish, birds and mammals."@en ;
-    iucn:languageVersion _:N07301cdd911a402e94738102f72da6d3,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd7cc26f1c00f4c32bb4d3346a31d5d27,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N07301cdd911a402e94738102f72da6d3 .
+    iucn:latestUpdate _:Nd7cc26f1c00f4c32bb4d3346a31d5d27 .
 
 base:EFG_MFT1_2 a rdfs:Resource,
         skos:Concept,
@@ -2284,15 +2310,15 @@ les régimes de marée et les gradients locaux d\\'inondation et de
 salinité."""@fr ;
     iucn:efgCode "MFT1.2"^^xsd:string ;
     iucn:keyFeatures "Intertidal mangrove-dominated systems, producing high amounts of organic matter that is both buried in situ and exported; sediments dominated by detritivores and leaf shredders, with birds , mammals, reptiles and terrestrial invertebrates occupying the canopy"@en ;
-    iucn:languageVersion _:N50395377b5c6485e80cf9c6554dde50d,
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N6a806df451cd43c1810af41569164c2c,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N50395377b5c6485e80cf9c6554dde50d .
+    iucn:latestUpdate _:N6a806df451cd43c1810af41569164c2c .
 
 base:EFG_MFT1_3 a rdfs:Resource,
         skos:Concept,
@@ -2389,12 +2415,12 @@ de haut en bas."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N749ad52e4c214db2a811c4c65dc22e6f,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nb6669c3daf5840c4945b5676d6c25b67 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N749ad52e4c214db2a811c4c65dc22e6f .
+    iucn:latestUpdate _:Nb6669c3daf5840c4945b5676d6c25b67 .
 
 base:EFG_SM1_1 a rdfs:Resource,
         skos:Concept,
@@ -2477,15 +2503,15 @@ des masses d\\'eau isolées, loin à l\\'intérieur de vastes systèmes de
 grottes du plancher océanique."""@fr ;
     iucn:efgCode "SM1.1"^^xsd:string ;
     iucn:keyFeatures "Cave-bound waterbodies connected to the sea with a gradient of tidal influence and salinity. Filter feeders, scavengers and predators limited by light and nutrients"@en ;
-    iucn:languageVersion _:N57669aa234444b569fff36e33171c649,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N28d1d9166f98499b83105cc339d9b43a,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N57669aa234444b569fff36e33171c649 .
+    iucn:latestUpdate _:N28d1d9166f98499b83105cc339d9b43a .
 
 base:EFG_SM1_2 a rdfs:Resource,
         skos:Concept,
@@ -2572,12 +2598,12 @@ des coulées de lave basaltique."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne6863d9063cf48f9becec9c65424a9c3,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nb9a54ea443124a13b1c7592f32adbe3b ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne6863d9063cf48f9becec9c65424a9c3 .
+    iucn:latestUpdate _:Nb9a54ea443124a13b1c7592f32adbe3b .
 
 base:EFG_SM1_3 a rdfs:Resource,
         skos:Concept,
@@ -2657,15 +2683,15 @@ organique, atténuant ainsi l\\'oligotrophie dans les secteurs confinés
 des grottes."""@fr ;
     iucn:efgCode "SM1.3"^^xsd:string ;
     iucn:keyFeatures "Wave-exposed caves provide dim light and shelter to cave-exclusive, resident and transient/ migratory invertebrates and fish."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne0c42fb319c54fa1b8ffee5b13b50e5b ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne11583c8e21c44b88bd23cc236d7d277 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne0c42fb319c54fa1b8ffee5b13b50e5b .
+    iucn:latestUpdate _:Ne11583c8e21c44b88bd23cc236d7d277 .
 
 base:Biome_MT1 a rdfs:Resource,
         skos:Concept,
@@ -2725,15 +2751,19 @@ biomasse des systèmes de petite taille."""@fr ;
         "Shorelines biome"@es,
         "Shorelines biome"@fr ;
     iucn:biomeCode "MT1"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N40e5b4e05b7e4d848275b7cec87d16c4,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N56adb2e3175d4292b4b699eed89862cb ;
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N56adb2e3175d4292b4b699eed89862cb .
+    iucn:latestUpdate _:N40e5b4e05b7e4d848275b7cec87d16c4 .
 
 base:Biome_T1 a rdfs:Resource,
         skos:Concept,
@@ -2797,15 +2827,19 @@ terrestres au sein du biome"""@fr ;
         "Tropical-subtropical forests biome"@es,
         "Tropical-subtropical forests biome"@fr ;
     iucn:biomeCode "T1"^^xsd:string ;
-    iucn:languageVersion _:N189686c6909844d98fdba735edc104ee,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:N78d958b54a3d4cae888a3dc4dcca2a2e,
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N189686c6909844d98fdba735edc104ee .
+    iucn:latestUpdate _:N78d958b54a3d4cae888a3dc4dcca2a2e .
 
 base:Biome_T3 a rdfs:Resource,
         skos:Concept,
@@ -2863,15 +2897,19 @@ et à des déficits hydriques."""@fr ;
         "Shrublands and shrubby woodlands biome"@es,
         "Shrublands and shrubby woodlands biome"@fr ;
     iucn:biomeCode "T3"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N383aa4c886d844e1a07eb68f4f3d9d1b,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne6b41d97fd18432a9205b41a36c88281 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne6b41d97fd18432a9205b41a36c88281 .
+    iucn:latestUpdate _:N383aa4c886d844e1a07eb68f4f3d9d1b .
 
 base:EFG_MT1_1 a rdfs:Resource,
         skos:Concept,
@@ -2959,15 +2997,15 @@ cela puisse varier en fonction de la disponibilité des nutriments
 provenant de la remontée d\\'eau."""@fr ;
     iucn:efgCode "MT1.1"^^xsd:string ;
     iucn:keyFeatures "Hard intertidal substrate, dominated by sessile and mobile invertebrates, and macroalgae"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6fd0a302f95c4ec4a9b0c0593bfdaf16,
+    iucn:languageVersion _:N5a2221e241c24c9c9278e682cfcb1f1a,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6fd0a302f95c4ec4a9b0c0593bfdaf16 .
+    iucn:latestUpdate _:N5a2221e241c24c9c9278e682cfcb1f1a .
 
 base:EFG_MT1_2 a rdfs:Resource,
         skos:Concept,
@@ -3048,15 +3086,15 @@ ou du niveau de la mer, à des apports d\\'eau douce ou à des changements
 dans les courants qui favorisent la colonisation par les macrophytes."""@fr ;
     iucn:efgCode "MT1.2"^^xsd:string ;
     iucn:keyFeatures "Intertidal soft-sediment, of fine particle-size, dependent on allochtonous production and dominated by deposit feeding and detritivorous invertebrates that provide a prey resource for shore birds and fishes"@en ;
-    iucn:languageVersion _:N1d7ee27b65374f34a01748cc41438fe3,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N2522d84206a64840a45d7f97536a9912,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N1d7ee27b65374f34a01748cc41438fe3 .
+    iucn:latestUpdate _:N2522d84206a64840a45d7f97536a9912 .
 
 base:EFG_MT1_3 a rdfs:Resource,
         skos:Concept,
@@ -3137,15 +3175,15 @@ les tortues qui pondent) et des habitats terrestres ou de transition
 les renards qui se nourrissent de charognes)."""@fr ;
     iucn:efgCode "MT1.3"^^xsd:string ;
     iucn:keyFeatures "Intertidal soft-sediment, of large particle-size, lacking conspicuous macrophytes, and dominated by suspension-feeding invertebrates that provide a prey resource for shore birds and fishes"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N59f244d7b596481d9eb89385cd6b6391,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N31eea801bfcf4b9ea079d060da9016bc,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N59f244d7b596481d9eb89385cd6b6391 .
+    iucn:latestUpdate _:N31eea801bfcf4b9ea079d060da9016bc .
 
 base:EFG_MT1_4 a rdfs:Resource,
         skos:Concept,
@@ -3239,7 +3277,7 @@ spartine peut également favoriser l\\'installation de plantes plus hautes
 sur le littoral intertidal."""@fr ;
     iucn:efgCode "MT1.4"^^xsd:string ;
     iucn:keyFeatures "Unstable intertidal hard substrate, that supports encrusting and fouling species at low elevations and in some instances vegetation, though largely dependent on allocthonous production"@en ;
-    iucn:languageVersion _:N4e5969e9e1664610be895cd3c2911abd,
+    iucn:languageVersion _:N6986b37c752d4327ae69ddca7cdf742b,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -3247,7 +3285,7 @@ sur le littoral intertidal."""@fr ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4e5969e9e1664610be895cd3c2911abd .
+    iucn:latestUpdate _:N6986b37c752d4327ae69ddca7cdf742b .
 
 base:EFG_T1_1 a rdfs:Resource,
         skos:Concept,
@@ -3339,7 +3377,7 @@ les racines absorbent l\\'humidité microclimatique jusqu\\'à ce qu\\'elles
 atteignent le sol."""@fr ;
     iucn:efgCode "T1.1"^^xsd:string ;
     iucn:keyFeatures "Tall closed-canopy evergreen forests in warm wet climates, phylogenetically & functionally highly diverse life forms"@en ;
-    iucn:languageVersion _:N030a5dac1acc498789b322756a9d36fe,
+    iucn:languageVersion _:N3faa258292554581b4744dd93749a424,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -3347,7 +3385,7 @@ atteignent le sol."""@fr ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N030a5dac1acc498789b322756a9d36fe .
+    iucn:latestUpdate _:N3faa258292554581b4744dd93749a424 .
 
 base:EFG_T1_2 a rdfs:Resource,
         skos:Concept,
@@ -3425,15 +3463,15 @@ sont peu courantes). Ces forêts peuvent être impliquées dans une
 dynamique d\\'état stable régulée par le feu avec les savanes."""@fr ;
     iucn:efgCode "T1.2"^^xsd:string ;
     iucn:keyFeatures "Closed-canopy deciduous and semi-deciduous forests in warm seasonally wet/dry climates, diverse life forms"@en ;
-    iucn:languageVersion _:N084459d9a03146be83a723783a4109b8,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N73e4cf9874a4464fb14740e25eb7ebf4 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N084459d9a03146be83a723783a4109b8 .
+    iucn:latestUpdate _:N73e4cf9874a4464fb14740e25eb7ebf4 .
 
 base:EFG_T1_3 a rdfs:Resource,
         skos:Concept,
@@ -3514,15 +3552,15 @@ la plupart des plantes tolèrent l\\'ombre et peuvent se développer à
 l\\'ombre."""@fr ;
     iucn:efgCode "T1.3"^^xsd:string ;
     iucn:keyFeatures "Closed-canopy evergreen forests with abundant non-vascular epiphytes in warm/cool wet cloudy climates, diverse life forms"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N4718da7165fa4ac88d1bccf9e964cde9,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nff3698bfc9a4419fb71f7b035914a47b ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nff3698bfc9a4419fb71f7b035914a47b .
+    iucn:latestUpdate _:N4718da7165fa4ac88d1bccf9e964cde9 .
 
 base:EFG_T1_4 a rdfs:Resource,
         skos:Concept,
@@ -3599,15 +3637,15 @@ sol est peu abondante, le sol de la forêt étant dominé par des plantes
 vasculaires insectivores et des bryophytes."""@fr ;
     iucn:efgCode "T1.4"^^xsd:string ;
     iucn:keyFeatures "Low closed-canopy evergreen forests in warm wet climates on low-nutrient substrates, structurally simple cf T1"@en ;
-    iucn:languageVersion _:N63fb59dfaaaa4fcc8fcd453d763cea9c,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N197eee3abb0e43c8a9b67fe738b3489e,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N63fb59dfaaaa4fcc8fcd453d763cea9c .
+    iucn:latestUpdate _:N197eee3abb0e43c8a9b67fe738b3489e .
 
 base:EFG_T3_1 a rdfs:Resource,
         skos:Concept,
@@ -3680,7 +3718,7 @@ Les incendies récurrents jouent un rôle dans la régulation descendante
 de la structure et de la composition de l\\'écosystème."""@fr ;
     iucn:efgCode "T3.1"^^xsd:string ;
     iucn:keyFeatures "Mostly evergreen, sclerophyll shrublands on nutrient-poor soils, C4 grasses can be important"@en ;
-    iucn:languageVersion _:N3331fb1deb264733abbaec79b6c7a452,
+    iucn:languageVersion _:N23b3dc46966740ff98968eb2826ee88b,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -3688,7 +3726,7 @@ de la structure et de la composition de l\\'écosystème."""@fr ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N3331fb1deb264733abbaec79b6c7a452 .
+    iucn:latestUpdate _:N23b3dc46966740ff98968eb2826ee88b .
 
 base:EFG_T3_2 a rdfs:Resource,
         skos:Concept,
@@ -3779,15 +3817,15 @@ mammifères) et les fourmis peuvent jouer un rôle important dans la
 dispersion des graines."""@fr ;
     iucn:efgCode "T3.2"^^xsd:string ;
     iucn:keyFeatures "Sclerophyll evergreen shrublands of humid and subhumid mid-latitudes with a canopy-fire regime"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N47b13528f15a43f6a80bcd27a06ec470,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nd8eece6345494f8cadbe749f2756fe25 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nd8eece6345494f8cadbe749f2756fe25 .
+    iucn:latestUpdate _:N47b13528f15a43f6a80bcd27a06ec470 .
 
 base:EFG_T3_3 a rdfs:Resource,
         skos:Concept,
@@ -3867,15 +3905,15 @@ cyclique autogène des îlots dans laquelle les arbustes et les graminées
 sont alternativement dominants, sénescents et en régénération."""@fr ;
     iucn:efgCode "T3.3"^^xsd:string ;
     iucn:keyFeatures "Low-diversity, low productivity mixed graminoid ericoid shrublands of maratime environments, supporting mammalian browsers"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N94aeebaac308475d925b2b3beea38a7f,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ndfb92f6aa61c483b9a98eea7ccf1f62e ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ndfb92f6aa61c483b9a98eea7ccf1f62e .
+    iucn:latestUpdate _:N94aeebaac308475d925b2b3beea38a7f .
 
 base:EFG_T3_4 a rdfs:Resource,
         skos:Concept,
@@ -3955,15 +3993,15 @@ diversité de micro-habitats, un biote plus insulaire et un endémisme
 plus élevé, et sont classés dans d\\'autres groupes fonctionnels."""@fr ;
     iucn:efgCode "T3.4"^^xsd:string ;
     iucn:keyFeatures "Low-diversity cryptogam-dominated systems with scattered herbs and shrubs on skeletal substrates with limited nutrients and moisture"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:Nc654ba4a71164892bdbfa5507d737711,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb7a5ca2bbc4c40bba77d70f2f7806e8c ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb7a5ca2bbc4c40bba77d70f2f7806e8c .
+    iucn:latestUpdate _:Nc654ba4a71164892bdbfa5507d737711 .
 
 base:Realm_FM a rdfs:Resource,
         skos:Concept,
@@ -4078,15 +4116,19 @@ les reptiles et, parfois, les mammifères amphibies."""@fr ;
         "Artificial wetlands biome"@es,
         "Artificial wetlands biome"@fr ;
     iucn:biomeCode "F3"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na17c4ec6fcc84340a29348f0c319643a,
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N6a19d269509f4f24b622775b77e448e0,
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na17c4ec6fcc84340a29348f0c319643a .
+    iucn:latestUpdate _:N6a19d269509f4f24b622775b77e448e0 .
 
 base:Biome_M2 a rdfs:Resource,
         skos:Concept,
@@ -4144,15 +4186,19 @@ profondeurs aphotiques peuvent avoir des organes sensoriels améliorés."""@fr ;
         "Pelagic ocean waters biome"@es,
         "Pelagic ocean waters biome"@fr ;
     iucn:biomeCode "M2"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N39347ecd65a9438aa0a10779fdf07bd1,
+    iucn:languageVersion [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Na8ed779c5da646868dcabc478858ec83,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N39347ecd65a9438aa0a10779fdf07bd1 .
+    iucn:latestUpdate _:Na8ed779c5da646868dcabc478858ec83 .
 
 base:Biome_T4 a rdfs:Resource,
         skos:Concept,
@@ -4218,15 +4264,19 @@ fertilité du sol."""@fr ;
         "Savannas and grasslands biome"@es,
         "Savannas and grasslands biome"@fr ;
     iucn:biomeCode "T4"^^xsd:string ;
-    iucn:languageVersion _:N4ba2cbfba8fd4e699b8c1fa66bb19707,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:N5b64a9eda97a421fa1631ee8593068b2,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4ba2cbfba8fd4e699b8c1fa66bb19707 .
+    iucn:latestUpdate _:N5b64a9eda97a421fa1631ee8593068b2 .
 
 base:Biome_T5 a rdfs:Resource,
         skos:Concept,
@@ -4291,15 +4341,19 @@ des ressources qui suit les événements pluvieux."""@fr ;
         "Deserts and semi-deserts biome"@es,
         "Deserts and semi-deserts biome"@fr ;
     iucn:biomeCode "T5"^^xsd:string ;
-    iucn:languageVersion _:N4a7ad879136744c28159a7bcb05fb6f0,
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nc2c1a110f9d4495c8f2769c29397c5e5 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4a7ad879136744c28159a7bcb05fb6f0 .
+    iucn:latestUpdate _:Nc2c1a110f9d4495c8f2769c29397c5e5 .
 
 base:Biome_T6 a rdfs:Resource,
         skos:Concept,
@@ -4362,11 +4416,15 @@ sont également bien représentés parmi le biote."""@fr ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:Ndeacb03e1bdb461bbcef23d5e3cd1cc1,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nf8d36a765b5544bab184443a9398d9cd ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nf8d36a765b5544bab184443a9398d9cd .
+    iucn:latestUpdate _:Ndeacb03e1bdb461bbcef23d5e3cd1cc1 .
 
 base:Biome_T7 a rdfs:Resource,
         skos:Concept,
@@ -4443,15 +4501,19 @@ de chaleur) ou peuvent être contrôlées artificiellement."""@fr ;
         "Intensive land-use biome"@es,
         "Intensive land-use biome"@fr ;
     iucn:biomeCode "T7"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2021-12-30"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Naf3e16589ccc4e8fb8cbb145e5c5d538,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Nf15362ba0e0745d09335a3e6de0b2d5e ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Naf3e16589ccc4e8fb8cbb145e5c5d538 .
+    iucn:latestUpdate _:Nf15362ba0e0745d09335a3e6de0b2d5e .
 
 base:EFG_F3_1 a rdfs:Resource,
         skos:Concept,
@@ -4531,15 +4593,15 @@ l\\'afflux de bassins versants où l\\'on pratique l\\'épandage continu
 d\\'engrais ou d\\'autres apports de nutriments."""@fr ;
     iucn:efgCode "F3.1"^^xsd:string ;
     iucn:keyFeatures "Large, usually deep stratifed waterbodies impounded by walls across outflow channels. Productivity and biotic diversity are lower than unregulated lakes of simila rsize and complexity. Trophic networks are simple"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N3161fa44ca9f46cf911d16ae06ad7dda,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N2d662806c4ce469fb32ba1d4ef3af486,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N2d662806c4ce469fb32ba1d4ef3af486 .
+    iucn:latestUpdate _:N3161fa44ca9f46cf911d16ae06ad7dda .
 
 base:EFG_F3_2 a rdfs:Resource,
         skos:Concept,
@@ -4627,15 +4689,15 @@ que les systèmes inondés en permanence offrent un habitat aux espèces
 mobiles telles que les oiseaux d\\'eau."""@fr ;
     iucn:efgCode "F3.2"^^xsd:string ;
     iucn:keyFeatures "Small, shallow open waterbodies with high or low productivity depending on nutrient subsidies and complexity of littoral zones and benthos Relatively simple trophic networks with algae, macrophytes, zooplankton, aquatic invertebrates and amphibians"@en ;
-    iucn:languageVersion _:N02e487e9d6594af7aa66cabf6e69b40e,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N96c0e5ba45bb4115885a6690534bc299 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N02e487e9d6594af7aa66cabf6e69b40e .
+    iucn:latestUpdate _:N96c0e5ba45bb4115885a6690534bc299 .
 
 base:EFG_F3_3 a rdfs:Resource,
         skos:Concept,
@@ -4714,15 +4776,15 @@ caractéristiques de dormance qui leur permettent de persister sous forme
 d\\'œufs ou de graines pendant les phases sèches."""@fr ;
     iucn:efgCode "F3.3"^^xsd:string ;
     iucn:keyFeatures "Artificial wetlands with limited horizontal and vertical heterogeneity, filled seasonally with water from rivers or rainfall and frequently disturbed by planting and harvest of rice. Simple trophic networks with colonists from rivers and wetlands that may also include managed fish populations"@en ;
-    iucn:languageVersion _:N74de3276a0cd4dfbb369c2602671fec9,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:Ndc9d08b37b654d648dd691e8bb66dda1,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N74de3276a0cd4dfbb369c2602671fec9 .
+    iucn:latestUpdate _:Ndc9d08b37b654d648dd691e8bb66dda1 .
 
 base:EFG_F3_4 a rdfs:Resource,
         skos:Concept,
@@ -4806,15 +4868,15 @@ dispersent souvent à partir des zones humides naturelles, des rivières
 et des plans d\\'eau d\\'accueil situés à proximité."""@fr ;
     iucn:efgCode "F3.4"^^xsd:string ;
     iucn:keyFeatures "Artificial mostly permanent waterbodies managed for production of fish or crustaceans with managed inputs of nutrients and energy Simple trophic networks of opportunistic colonists supported mainly be algal productivity"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N4e1393b4c2264289801dccdf874a9171,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne684928594f14d2e89f3233a0dd862d8 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne684928594f14d2e89f3233a0dd862d8 .
+    iucn:latestUpdate _:N4e1393b4c2264289801dccdf874a9171 .
 
 base:EFG_F3_5 a rdfs:Resource,
         skos:Concept,
@@ -4893,15 +4955,15 @@ constituer des voies de dispersion ou de colonisation du biote indigène
 et envahissant."""@fr ;
     iucn:efgCode "F3.5"^^xsd:string ;
     iucn:keyFeatures "Artificial streams often with low horizontal and vertical heterogeneity, but with productivity, diversity and trophic structure highly dependent on fringing vegetation and subsidies of nutrients and carbon from catchments"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N346e5b1dcd1e4ffeb8cb2e1061508b02,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N39f03af32dc642e2b1a5220ed98da7c5 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N39f03af32dc642e2b1a5220ed98da7c5 .
+    iucn:latestUpdate _:N346e5b1dcd1e4ffeb8cb2e1061508b02 .
 
 base:EFG_M2_1 a rdfs:Resource,
         skos:Concept,
@@ -4993,15 +5055,15 @@ importante source particulaire de nutriments pour les zones plus
 profondes et aphotiques."""@fr ;
     iucn:efgCode "M2.1"^^xsd:string ;
     iucn:keyFeatures "Uppermost euphotic ocean, where phytoplankton production supports abundant mobile zooplankton, fish, cephalopods, mammals and seabirds"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N27f30255bceb4977abd70785a44a52ef,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nf7a9adf75c224eb9a8098e07707efa94 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nf7a9adf75c224eb9a8098e07707efa94 .
+    iucn:latestUpdate _:N27f30255bceb4977abd70785a44a52ef .
 
 base:EFG_M2_2 a rdfs:Resource,
         skos:Concept,
@@ -5087,12 +5149,12 @@ grandeur plus importants que les débarquements de la pêche mondiale (1 ×
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb4b25846788e42079cc67a8d473bfd69,
+        _:N900eddeba8cd40f493ebd8af7f351868,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb4b25846788e42079cc67a8d473bfd69 .
+    iucn:latestUpdate _:N900eddeba8cd40f493ebd8af7f351868 .
 
 base:EFG_M2_3 a rdfs:Resource,
         skos:Concept,
@@ -5180,15 +5242,15 @@ biologiques) afin d\\'optimiser la fonction des protéines à haute
 pression."""@fr ;
     iucn:efgCode "M2.3"^^xsd:string ;
     iucn:keyFeatures "Lightless, high pressure depths where adapted zooplankton, crustaceans, jellies, cephalopods and fish rely on nutrients falling from above"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb657d7da23014b54b63f6605d0847c0f,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Nb146dfd0142c4ad2add0b87ba74ac0d3 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb657d7da23014b54b63f6605d0847c0f .
+    iucn:latestUpdate _:Nb146dfd0142c4ad2add0b87ba74ac0d3 .
 
 base:EFG_M2_4 a rdfs:Resource,
         skos:Concept,
@@ -5260,15 +5322,15 @@ influencent les propriétés des fluides biologiques) afin d\\'optimiser la
 fonction des protéines à haute pression."""@fr ;
     iucn:efgCode "M2.4"^^xsd:string ;
     iucn:keyFeatures "Lightless, high pressure depths with limited nutrients and low biodiversity of adapted detrivores, jellies, scavengers and predatory fish"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6f570a35731e42169eea8d37490c5f18,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nce7dd58b2f794df88003bbdd35d96e5c,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6f570a35731e42169eea8d37490c5f18 .
+    iucn:latestUpdate _:Nce7dd58b2f794df88003bbdd35d96e5c .
 
 base:EFG_M2_5 a rdfs:Resource,
         skos:Concept,
@@ -5350,15 +5412,15 @@ croissance du phytoplancton et jouent un rôle important dans les cycles
 biogéochimiques."""@fr ;
     iucn:efgCode "M2.5"^^xsd:string ;
     iucn:keyFeatures "Highly dynamic, seasonally frozen surface waters support diverse ice-associated organisms from plankton to seabirds and whales"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6c9c4a8529ea47eaa66d9c0b062fd51f,
+    iucn:languageVersion _:N52514d00c6e24471aed76b5b70925cb2,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6c9c4a8529ea47eaa66d9c0b062fd51f .
+    iucn:latestUpdate _:N52514d00c6e24471aed76b5b70925cb2 .
 
 base:EFG_T4_1 a rdfs:Resource,
         skos:Concept,
@@ -5437,15 +5499,15 @@ du cycle du carbone. La fixation, le recyclage et le dépôt d\\'azote par
 les animaux dépassent la volatilisation."""@fr ;
     iucn:efgCode "T4.1"^^xsd:string ;
     iucn:keyFeatures "Grassy woodlands and grasslands dominated by C4 grasses in seasonal climates with lower rainfall and higher soil fertility."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N7bc2628f100d47f38378dbe1b6c8b67b ;
+        _:N562756b3a5dd417bab75039a41d1d801,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N7bc2628f100d47f38378dbe1b6c8b67b .
+    iucn:latestUpdate _:N562756b3a5dd417bab75039a41d1d801 .
 
 base:EFG_T4_2 a rdfs:Resource,
         skos:Concept,
@@ -5532,15 +5594,15 @@ les herbivores, telles que la spinescence, sont moins importantes qu\\'au
 point T4.1."""@fr ;
     iucn:efgCode "T4.2"^^xsd:string ;
     iucn:keyFeatures "Grasslands and grassy woodlands dominated by C4 tussock grasses. Strong seasonal (winter) drought, low fertility, and fires major consumer of biomass."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N15d618182c144fc3bc3027190e6d003d,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na36d30ba8ca54df9abe0d01a32eb6c6a ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na36d30ba8ca54df9abe0d01a32eb6c6a .
+    iucn:latestUpdate _:N15d618182c144fc3bc3027190e6d003d .
 
 base:EFG_T4_3 a rdfs:Resource,
         skos:Concept,
@@ -5625,9 +5687,9 @@ raison des incendies récurrents."""@fr ;
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nd9fbeedace4b4a02a673e355d24c60eb ;
+        _:N800f20a9f161453b8f999a634043013d ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nd9fbeedace4b4a02a673e355d24c60eb .
+    iucn:latestUpdate _:N800f20a9f161453b8f999a634043013d .
 
 base:EFG_T4_4 a rdfs:Resource,
         skos:Concept,
@@ -5713,12 +5775,12 @@ pyriques tels que T2.6)."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N96239b670be64784a81428a7c6709230,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N90a28befac0e43d18ab9783003a0c990 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N96239b670be64784a81428a7c6709230 .
+    iucn:latestUpdate _:N90a28befac0e43d18ab9783003a0c990 .
 
 base:EFG_T4_5 a rdfs:Resource,
         skos:Concept,
@@ -5804,12 +5866,12 @@ interstitielles."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne5d0e860b2e743288fc0742badc3956b,
+        _:N9af2077c0b5b458ca71aacaa493ffeab,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne5d0e860b2e743288fc0742badc3956b .
+    iucn:latestUpdate _:N9af2077c0b5b458ca71aacaa493ffeab .
 
 base:EFG_T5_1 a rdfs:Resource,
         skos:Concept,
@@ -5892,15 +5954,15 @@ et leurs prédateurs, mais moins les herbivores, qui présentent de
 multiples caractéristiques favorisant la conservation de l\\'eau."""@fr ;
     iucn:efgCode "T5.1"^^xsd:string ;
     iucn:keyFeatures "Low-productivity and low-stature shrublands, tussock-grass and mixed, with episodic trophic pulses driven by variable rainfall"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N167fe85cf1e645359be115dd5d615c3f,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nbf325d6d43d0457e8232aaafc1e5fd04 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nbf325d6d43d0457e8232aaafc1e5fd04 .
+    iucn:latestUpdate _:N167fe85cf1e645359be115dd5d615c3f .
 
 base:EFG_T5_2 a rdfs:Resource,
         skos:Concept,
@@ -5981,15 +6043,15 @@ sur de grandes superficies. Les prédateurs sont présents en faible
 densité en raison de la faible productivité des populations de proies."""@fr ;
     iucn:efgCode "T5.2"^^xsd:string ;
     iucn:keyFeatures "Characterized by tall succulent plants, diverse annuals and geophytes, supporting diverse mammals, reptiles and invertebrates"@en ;
-    iucn:languageVersion _:N7f1d9a1a3f45418abeb5b8d8b82bc88f,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne32dbed47a2d4e18bfffd1f8c589a54d ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N7f1d9a1a3f45418abeb5b8d8b82bc88f .
+    iucn:latestUpdate _:Ne32dbed47a2d4e18bfffd1f8c589a54d .
 
 base:EFG_T5_3 a rdfs:Resource,
         skos:Concept,
@@ -6078,15 +6140,15 @@ initient des processus de succession tant pour la flore que pour la
 faune."""@fr ;
     iucn:efgCode "T5.3"^^xsd:string ;
     iucn:keyFeatures "Perennial sclerophyll shrubs and Hummock C4 grasses on nutrient-poor soils; highly variable rainfall, high diversity and endemism"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne988c554aafe48f2ae2345af340b93a3 ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N40ff4165bb904d3689cb0c8937dae9ff ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne988c554aafe48f2ae2345af340b93a3 .
+    iucn:latestUpdate _:N40ff4165bb904d3689cb0c8937dae9ff .
 
 base:EFG_T5_4 a rdfs:Resource,
         skos:Concept,
@@ -6176,15 +6238,15 @@ vasculaires. Elles jouent un rôle essentiel dans la stabilité du sol et
 la disponibilité de l\\'eau et des nutriments."""@fr ;
     iucn:efgCode "T5.4"^^xsd:string ;
     iucn:keyFeatures "Xeromorphic suffratescent or non-sclerophyll shrublands or grasslands; freezing temperatures in winter low, rainfall offset by reduced evapotranspiration burdon; low diversity and endemism"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb5ad58b988e548d89310f4770d82ee53 ;
+        _:N08446550325b454798f07b8088928f7f,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb5ad58b988e548d89310f4770d82ee53 .
+    iucn:latestUpdate _:N08446550325b454798f07b8088928f7f .
 
 base:EFG_T5_5 a rdfs:Resource,
         skos:Concept,
@@ -6272,12 +6334,12 @@ scie qui coïncide avec des pluies épisodiques."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6dcf63e8719849789c0ad558b476829c,
+        _:N58f03c5eb4fd434abebff0e521d5efa3,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6dcf63e8719849789c0ad558b476829c .
+    iucn:latestUpdate _:N58f03c5eb4fd434abebff0e521d5efa3 .
 
 base:EFG_T6_1 a rdfs:Resource,
         skos:Concept,
@@ -6365,15 +6427,15 @@ alimentant des processus microbiens impliquant des procaryotes et des
 champignons hétérotrophes et chimio-autotrophes."""@fr ;
     iucn:efgCode "T6.1"^^xsd:string ;
     iucn:keyFeatures "Permanent, dynamic ice cover where extreme cold limits productivity and diversity, biota dominated by microorganisms, migratory/overwintering birds may occur"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne1c6cf50ce22473c99297904d0e24436 ;
+        _:Nbd01464235fd467cb278d81feb9a8c55,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne1c6cf50ce22473c99297904d0e24436 .
+    iucn:latestUpdate _:Nbd01464235fd467cb278d81feb9a8c55 .
 
 base:EFG_T6_2 a rdfs:Resource,
         skos:Concept,
@@ -6445,15 +6507,15 @@ entre les effondrements, favorisent la dynamique des écosystèmes en
 déséquilibre."""@fr ;
     iucn:efgCode "T6.2"^^xsd:string ;
     iucn:keyFeatures "Environments free of permanent ice where extreme cold, winds, skeletal substrates and periodic mass movement limit biota to cryptogams, invertebrates and microorganisms, nesting birds may occur."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N52edf2e636dd4585a2ae05ae8efda022,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na5c06ab00e864642b9443a2d60504aee,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na5c06ab00e864642b9443a2d60504aee .
+    iucn:latestUpdate _:N52edf2e636dd4585a2ae05ae8efda022 .
 
 base:EFG_T6_3 a rdfs:Resource,
         skos:Concept,
@@ -6532,15 +6594,15 @@ et d\\'énergie. Les canidés prédateurs et les ours polaires sont nomades
 ou ont de vastes domaines vitaux."""@fr ;
     iucn:efgCode "T6.3"^^xsd:string ;
     iucn:keyFeatures "Open and low vegetation of herbaceous plants (e.g. tussocks, cushions,  rosette plants) and abundant kryptogams in very cold climates with permafrost"@en ;
-    iucn:languageVersion _:N190db00d44334996bf571b2366e19abb,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd55fc62e5d864275a0ceee49643f8ba3 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N190db00d44334996bf571b2366e19abb .
+    iucn:latestUpdate _:Nd55fc62e5d864275a0ceee49643f8ba3 .
 
 base:EFG_T6_4 a rdfs:Resource,
         skos:Concept,
@@ -6620,7 +6682,7 @@ et des barrières topographiques à la dispersion entre les chaînes de
 montagnes, avec des preuves de facilitation et de compétition."""@fr ;
     iucn:efgCode "T6.4"^^xsd:string ;
     iucn:keyFeatures "Mountain systems above the physiological limits of trees, with sparse to continuous cover of herbaceous plants, cryptogams and dwarf shrubs that may be morphologically adaptated to extreme cold."@en ;
-    iucn:languageVersion _:N4f567a5d71bb414ab3f29e28b1c555f4,
+    iucn:languageVersion _:N4839d4bcd2294c00b38d8c552ce7c860,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -6628,7 +6690,7 @@ montagnes, avec des preuves de facilitation et de compétition."""@fr ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4f567a5d71bb414ab3f29e28b1c555f4 .
+    iucn:latestUpdate _:N4839d4bcd2294c00b38d8c552ce7c860 .
 
 base:EFG_T6_5 a rdfs:Resource,
         skos:Concept,
@@ -6715,15 +6777,15 @@ prédateurs des savanes de plaine adjacentes, ainsi que les reptiles, les
 petits mammifères et les macro-invertébrés résidents."""@fr ;
     iucn:efgCode "T6.5"^^xsd:string ;
     iucn:keyFeatures "Dense perennial C3 cold tolerant tussock grasslands, with distinctive arborescent rosette and cushion growth forms, treeless except for sheltered gullies."@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N83c90d958cf8413797326802fd2efea6,
+    iucn:languageVersion _:N1b2162c582d84f9f988f3d51c7318f43,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N83c90d958cf8413797326802fd2efea6 .
+    iucn:latestUpdate _:N1b2162c582d84f9f988f3d51c7318f43 .
 
 base:EFG_T7_1 a rdfs:Resource,
         skos:Concept,
@@ -6815,15 +6877,15 @@ deviennent dominants et peuvent former un état stable et auto-entretenu
 ou une phase de transition vers de nouveaux écosystèmes."""@fr ;
     iucn:efgCode "T7.1"^^xsd:string ;
     iucn:keyFeatures "Structurally simple, very low- diversity, high-productivity annual croplands are maintained by the intensive anthropogenic supplementation of nutrients, water and artificial disturbance regimes"@en ;
-    iucn:languageVersion _:N0aec67440378433c86243f84679aff85,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nf3ad3f726f5d4e2692ace5a31d17575d ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N0aec67440378433c86243f84679aff85 .
+    iucn:latestUpdate _:Nf3ad3f726f5d4e2692ace5a31d17575d .
 
 base:EFG_T7_2 a rdfs:Resource,
         skos:Concept,
@@ -6910,15 +6972,15 @@ dominant et peut former un état stable et auto-entretenu ou une phase de
 transition vers de nouveaux écosystèmes."""@fr ;
     iucn:efgCode "T7.2"^^xsd:string ;
     iucn:keyFeatures "Structurally simple, very low- diversity, high-productivity grasslands dominated by one or few species of perennial grasses (Poacaeae) maintained by intensive addition of nutrients, water and artificial disturbance regimes (mowing or grazing)"@en ;
-    iucn:languageVersion _:N5ef6d894c49a473f9ecf5f35bc176350,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N8688e9d19b51416db374d0da7611ed4e,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5ef6d894c49a473f9ecf5f35bc176350 .
+    iucn:latestUpdate _:N8688e9d19b51416db374d0da7611ed4e .
 
 base:EFG_T7_3 a rdfs:Resource,
         skos:Concept,
@@ -7004,15 +7066,15 @@ incluses dans les plantations, même lorsque la gestion comprend des
 translocations supplémentaires."""@fr ;
     iucn:efgCode "T7.3"^^xsd:string ;
     iucn:keyFeatures "Structurally simple, low-diversity forests of one (rarely, a few) planted tree species of mostly same age, lack of structural elements of old-growth forests such as deadwood or cavities"@en ;
-    iucn:languageVersion _:N756ba8321472405d84c516abfa329829,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N72d307c364424936b978c39cf52627b8,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N756ba8321472405d84c516abfa329829 .
+    iucn:latestUpdate _:N72d307c364424936b978c39cf52627b8 .
 
 base:EFG_T7_4 a rdfs:Resource,
         skos:Concept,
@@ -7107,15 +7169,15 @@ d\\'herbicides et de pesticides ou par l\\'abattage, avec des effets
 collatéraux sur les biotes non ciblés."""@fr ;
     iucn:efgCode "T7.4"^^xsd:string ;
     iucn:keyFeatures "Ecosystems dominated by anthroipogenic structures (e.g. buildings, roads, wastelands) associated with human infrastructures, intensive anthropogenic disturbance regimes, and severely altered biogeochemical site conditions"@en ;
-    iucn:languageVersion _:N37ef92de5d584e0a8928acc8aa13dc93,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N926f11c377f54309af570544227f1cb0,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N37ef92de5d584e0a8928acc8aa13dc93 .
+    iucn:latestUpdate _:N926f11c377f54309af570544227f1cb0 .
 
 base:EFG_T7_5 a rdfs:Resource,
         skos:Concept,
@@ -7197,7 +7259,7 @@ exemple, l\\'élimination des herbivores domestiques peut déclencher une
 transition vers des écosystèmes dominés par les arbres."""@fr ;
     iucn:efgCode "T7.5"^^xsd:string ;
     iucn:keyFeatures "Extensively used, low-input grasslands (no or moderate fertilizer application, no sowing), rich in vascular plant species"@en ;
-    iucn:languageVersion _:N4571faea01b64a9aa89c1330d1ee7352,
+    iucn:languageVersion _:N37b86cc960dc498ba7f572522231e7ac,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -7205,7 +7267,7 @@ transition vers des écosystèmes dominés par les arbres."""@fr ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N4571faea01b64a9aa89c1330d1ee7352 .
+    iucn:latestUpdate _:N37b86cc960dc498ba7f572522231e7ac .
 
 base:Realm_S a rdfs:Resource,
         skos:Concept,
@@ -7284,15 +7346,19 @@ l\\'histoire de la vie, tels que la reproduction et le recrutement"""@fr ;
         "Temperate-boreal forests and woodlands biome"@es,
         "Temperate-boreal forests and woodlands biome"@fr ;
     iucn:biomeCode "T2"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb9f252a7681249feafcbe84152766010,
+    iucn:languageVersion [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N48798ff1803747e89d3e0b3e8a916850,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb9f252a7681249feafcbe84152766010 .
+    iucn:latestUpdate _:N48798ff1803747e89d3e0b3e8a916850 .
 
 base:EFG_T2_1 a rdfs:Resource,
         skos:Concept,
@@ -7392,12 +7458,12 @@ phases d\\'adulte qui correspondent à l\\'émergence printanière."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N5d9b6bf71f834ea59272ce49b1b374aa,
+        _:N8cf8c056aebe4574b10f6c6bb09f97b5,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5d9b6bf71f834ea59272ce49b1b374aa .
+    iucn:latestUpdate _:N8cf8c056aebe4574b10f6c6bb09f97b5 .
 
 base:EFG_T2_2 a rdfs:Resource,
         skos:Concept,
@@ -7487,15 +7553,15 @@ feuilles caduques peut exercer un contrôle allélopathique sur les semis
 d\\'arbres et la flore saisonnière au sol."""@fr ;
     iucn:efgCode "T2.2"^^xsd:string ;
     iucn:keyFeatures "Closed canopy broadleaved forests in seasonally warm and cold humid climates, with low to moderate woody species diversity"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N6500a45142364359ab9fdc5cbd4d9ef7,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N95d07e05a9044122a93bb3260c0af413,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N95d07e05a9044122a93bb3260c0af413 .
+    iucn:latestUpdate _:N6500a45142364359ab9fdc5cbd4d9ef7 .
 
 base:EFG_T2_3 a rdfs:Resource,
         skos:Concept,
@@ -7584,15 +7650,15 @@ démasclage, qui influencent fortement la dynamique trophique, en
 particulier celle des rongeurs et de leurs prédateurs."""@fr ;
     iucn:efgCode "T2.3"^^xsd:string ;
     iucn:keyFeatures "Closed canopy evergreen or semi-deciduous forests in cool wet climates, high endemism with low tree diversity and abundant epiphytes"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N1eb5cd4fedc845059e8fff64c7b0859c,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N91bffff468124d97b1427c7ae1e5ff68 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N91bffff468124d97b1427c7ae1e5ff68 .
+    iucn:latestUpdate _:N1eb5cd4fedc845059e8fff64c7b0859c .
 
 base:EFG_T2_4 a rdfs:Resource,
         skos:Concept,
@@ -7686,12 +7752,12 @@ comprend des formes de croissance variées mais peu d\\'herbes."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N84e000e5ae914af58e0ebe4c317ce249,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ndbfa9dac947542da894bf1e744e87c3f ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ndbfa9dac947542da894bf1e744e87c3f .
+    iucn:latestUpdate _:N84e000e5ae914af58e0ebe4c317ce249 .
 
 base:EFG_T2_5 a rdfs:Resource,
         skos:Concept,
@@ -7781,15 +7847,15 @@ dans toute une série de biotes. Les banques de semences maintiennent la
 diversité végétale grâce aux effets de stockage."""@fr ;
     iucn:efgCode "T2.5"^^xsd:string ;
     iucn:keyFeatures "Tall, moist and complex multi-layered forests in wet-temperate climates; characterised by sclerophyll dominant trees and diverse mesophyll understorey; population processes driven by fire regimes"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ndd8c90b9db4d47e297d2b7619ca4de0d ;
+        _:N4b4f59bbb5a34887a39d73443fed99b1,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ndd8c90b9db4d47e297d2b7619ca4de0d .
+    iucn:latestUpdate _:N4b4f59bbb5a34887a39d73443fed99b1 .
 
 base:EFG_T2_6 a rdfs:Resource,
         skos:Concept,
@@ -7876,15 +7942,15 @@ descendant essentiel de la diversité grâce aux effets de stockage et à
 la perturbation périodique de la concurrence entre les plantes."""@fr ;
     iucn:efgCode "T2.6"^^xsd:string ;
     iucn:keyFeatures "Sclerophyll forests and woodlands in warm climates with winter precipitation and a canopy-fire regime"@en ;
-    iucn:languageVersion _:N220b104ee5934ecdbf22a6b3b8883eee,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd7da64c05af04382a85d0f740b229e34 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N220b104ee5934ecdbf22a6b3b8883eee .
+    iucn:latestUpdate _:Nd7da64c05af04382a85d0f740b229e34 .
 
 base:Realm_SF a rdfs:Resource,
         skos:Concept,
@@ -7992,15 +8058,19 @@ dormants dominent dans les cours d\\'eau épisodiques."""@fr ;
         "Rivers and streams biome"@es,
         "Rivers and streams biome"@fr ;
     iucn:biomeCode "F1"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N23b46336ad4f44a4a4be934e29304761,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-29"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N5270d651476b44dcba33ee3de548a217,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5270d651476b44dcba33ee3de548a217 .
+    iucn:latestUpdate _:N23b46336ad4f44a4a4be934e29304761 .
 
 base:Biome_M3 a rdfs:Resource,
         skos:Concept,
@@ -8073,12 +8143,16 @@ de faibles niveaux de nutriments et de carbone."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ndb02c3f7415946cb8258851689407dc5 ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        _:Nfdc082529b6d4eb68dc0d36e9cee7a22 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ndb02c3f7415946cb8258851689407dc5 .
+    iucn:latestUpdate _:Nfdc082529b6d4eb68dc0d36e9cee7a22 .
 
 base:Biome_TF1 a rdfs:Resource,
         skos:Concept,
@@ -8148,15 +8222,19 @@ paysage, y compris les oiseaux d\\'eau."""@fr ;
         "Palustrine wetlands biome"@es,
         "Palustrine wetlands biome"@fr ;
     iucn:biomeCode "TF1"^^xsd:string ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N30df16c02a6b447891dbc76373646a13,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N8cd4d2182e354155b2fa2d9d91ce8849 ;
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N8cd4d2182e354155b2fa2d9d91ce8849 .
+    iucn:latestUpdate _:N30df16c02a6b447891dbc76373646a13 .
 
 base:EFG_F1_1 a rdfs:Resource,
         skos:Concept,
@@ -8246,15 +8324,15 @@ rapide des algues, des invertébrés brouteurs et des poissons sont
 courantes."""@fr ;
     iucn:efgCode "F1.1"^^xsd:string ;
     iucn:keyFeatures "High-medium velocity, low-medium volume perennial flows with abundant benthic filter feeders, algal biofilms & small fish"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N1fc3ef4b80f448378f06c1f40eabbcc2,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc8059a120a094c9e93385774bb4b83f2 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc8059a120a094c9e93385774bb4b83f2 .
+    iucn:latestUpdate _:N1fc3ef4b80f448378f06c1f40eabbcc2 .
 
 base:EFG_F1_2 a rdfs:Resource,
         skos:Concept,
@@ -8349,12 +8427,12 @@ faune et de flore aquatiques."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc7ebb65ed1e94e56b9991a45f7e58d68,
+        _:Nfa8189cb80d64a6ca001f7912400e453,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc7ebb65ed1e94e56b9991a45f7e58d68 .
+    iucn:latestUpdate _:Nfa8189cb80d64a6ca001f7912400e453 .
 
 base:EFG_F1_3 a rdfs:Resource,
         skos:Concept,
@@ -8446,15 +8524,15 @@ meurent après la reproduction, leur décomposition fournit à son tour
 d\\'énormes apports d\\'énergie et de nutriments au système."""@fr ;
     iucn:efgCode "F1.3"^^xsd:string ;
     iucn:keyFeatures "Cold-climate streams with seasonally frozen surface water and variable melt flows and aquatic biota with cold-resistance and/or seasonal dormancy"@en ;
-    iucn:languageVersion _:N515a1743f082441abb8490209900f48c,
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:Nf27b4758e0a64855b1aae72aa6742689 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N515a1743f082441abb8490209900f48c .
+    iucn:latestUpdate _:Nf27b4758e0a64855b1aae72aa6742689 .
 
 base:EFG_F1_4 a rdfs:Resource,
         skos:Concept,
@@ -8532,15 +8610,15 @@ exemple les oiseaux) fluctuent en fonction des régimes d\\'inondation
 saisonniers."""@fr ;
     iucn:efgCode "F1.4"^^xsd:string ;
     iucn:keyFeatures "High-medium velocity, low-medium volume, highly seasonal flows with abundant benthic filter feeders, algal biofilms & small fish"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ncddb7258e7a34b38b74acd6101af7d61 ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nf6abd928dc62475eb3d54f4c75bf3cba ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ncddb7258e7a34b38b74acd6101af7d61 .
+    iucn:latestUpdate _:Nf6abd928dc62475eb3d54f4c75bf3cba .
 
 base:EFG_F1_5 a rdfs:Resource,
         skos:Concept,
@@ -8620,15 +8698,15 @@ d\\'alevinage dans les plaines inondables pour les poissons de rivière,
 les amphibiens et les invertébrés de plus grande taille."""@fr ;
     iucn:efgCode "F1.5"^^xsd:string ;
     iucn:keyFeatures "Highly productive large rivers with seasonal hydrology large floodplain subsidies. Short food chains support large mobile predaors"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N106f27da1f2b464eb93784154db7e769,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na8040438a9ce49688e43b7d8f2542214 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na8040438a9ce49688e43b7d8f2542214 .
+    iucn:latestUpdate _:N106f27da1f2b464eb93784154db7e769 .
 
 base:EFG_F1_6 a rdfs:Resource,
         skos:Concept,
@@ -8724,15 +8802,15 @@ biomasse massive après les grandes inondations. Les organismes tolèrent
 généralement de larges plages de température, de salinité et d\\'oxygène."""@fr ;
     iucn:efgCode "F1.6"^^xsd:string ;
     iucn:keyFeatures "Rivers with high temporal flow variability which determines periods of high and low productivity, supporting high levels of biodiversity and complex trophic networks during floods and simple trophic networks during dry periods"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N7cc3b4eff9324188aa0613beec9344f4 ;
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne867a77a6ae6458fb502739142f5f35c ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N7cc3b4eff9324188aa0613beec9344f4 .
+    iucn:latestUpdate _:Ne867a77a6ae6458fb502739142f5f35c .
 
 base:EFG_F1_7 a rdfs:Resource,
         skos:Concept,
@@ -8819,15 +8897,15 @@ complexes, mais elles ont moins d\\'influence directe sur les grandes
 rivières que sur les écosystèmes fluviaux plus petits."""@fr ;
     iucn:efgCode "F1.7"^^xsd:string ;
     iucn:keyFeatures "Large highly productive rivers with megaflow rates and complex food webs, reflecting the extent of habitat, connections with floodplains and available niches for plants, invertebrates and large vertebrates including aquatic mammals."@en ;
-    iucn:languageVersion _:N40216e662d3b4695ab1aa2510e9ffc2d,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nf60d3c18da66472bb2e3b8fd14dc5b9f ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N40216e662d3b4695ab1aa2510e9ffc2d .
+    iucn:latestUpdate _:Nf60d3c18da66472bb2e3b8fd14dc5b9f .
 
 base:EFG_M3_1 a rdfs:Resource,
         skos:Concept,
@@ -8912,7 +8990,7 @@ mais les organismes benthiques sessiles sont rares et le fond est
 généralement constitué de sédiments nus et non consolidés."""@fr ;
     iucn:efgCode "M3.1"^^xsd:string ;
     iucn:keyFeatures "Large sedimentary, aphotic,  and heterotrophic slopes where depth gradients result in a bathymetric faunal zonation of high taxonomic diverstiy."@en ;
-    iucn:languageVersion _:N0c9a76f650514a3980ead737a7c9cd38,
+    iucn:languageVersion _:Na51cb0037e8f4b4082f6d5b1be22961c,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -8920,7 +8998,7 @@ généralement constitué de sédiments nus et non consolidés."""@fr ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N0c9a76f650514a3980ead737a7c9cd38 .
+    iucn:latestUpdate _:Na51cb0037e8f4b4082f6d5b1be22961c .
 
 base:EFG_M3_2 a rdfs:Resource,
         skos:Concept,
@@ -9013,15 +9091,15 @@ au milieu pélagique, y compris les cétacés, qui peuvent visiter les
 canyons pour se nourrir et se reproduire."""@fr ;
     iucn:efgCode "M3.2"^^xsd:string ;
     iucn:keyFeatures "Dinamics and heterogenous geomorphic features,  supporting highly diverse heterotrophic communities through enhaced transport of energy from the continents to the deep sea."@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb98e57d9eab64866bbe2ff55e96db694,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:N52896f9b8d374c59bcadd2fc0e9fdaa9 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb98e57d9eab64866bbe2ff55e96db694 .
+    iucn:latestUpdate _:N52896f9b8d374c59bcadd2fc0e9fdaa9 .
 
 base:EFG_M3_3 a rdfs:Resource,
         skos:Concept,
@@ -9105,15 +9183,15 @@ particulaire. Ces fonctions modulent les importants services
 régénération des nutriments et la séquestration du carbone."""@fr ;
     iucn:efgCode "M3.3"^^xsd:string ;
     iucn:keyFeatures "Largest benthic heterotrophic system, mostly of fine sediment, supporing high biodiversity of small organisms (microbes, meio- and macro-fauna)"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc1d3095d0de840ceaba00a7541c1c4cf ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nf907805772c04cd5bb90a588e4757157 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc1d3095d0de840ceaba00a7541c1c4cf .
+    iucn:latestUpdate _:Nf907805772c04cd5bb90a588e4757157 .
 
 base:EFG_M3_4 a rdfs:Resource,
         skos:Concept,
@@ -9205,15 +9283,15 @@ adjacents, tandis que les monts sous-marins insulaires peuvent présenter
 un endémisme élevé."""@fr ;
     iucn:efgCode "M3.4"^^xsd:string ;
     iucn:keyFeatures "Elevated geomorhic features with modified hydrography and heterogeneous habitat supporting high bnethic and pelagic productivity"@en ;
-    iucn:languageVersion _:N07380164fe04478abf97cc6c07fdfa38,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne6d32a3e541a4e0eb046fa9b89ec68c4 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N07380164fe04478abf97cc6c07fdfa38 .
+    iucn:latestUpdate _:Ne6d32a3e541a4e0eb046fa9b89ec68c4 .
 
 base:EFG_M3_5 a rdfs:Resource,
         skos:Concept,
@@ -9302,9 +9380,9 @@ matière et d\\'énergie de la colonne d\\'eau vers la communauté benthique."""
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Na309c757a0bb42a1b79bf56a54f9e335 ;
+        _:Nc6f42ba90607432d93a70b990a8263ad ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Na309c757a0bb42a1b79bf56a54f9e335 .
+    iucn:latestUpdate _:Nc6f42ba90607432d93a70b990a8263ad .
 
 base:EFG_M3_6 a rdfs:Resource,
         skos:Concept,
@@ -9386,15 +9464,15 @@ de la méiofaune (par exemple, les nématodes, les copépodes et les
 kinorhynques)."""@fr ;
     iucn:efgCode "M3.6"^^xsd:string ;
     iucn:keyFeatures "Deepest ocean systems, poorly explored, mostly of fine nutrient-poor sediment dominated by scavangers and detritivors"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ndb61eed8c9114acb8bfcc60b609c3a4c ;
+        _:Nd073428e017746f4b6e3c340b841c122,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ndb61eed8c9114acb8bfcc60b609c3a4c .
+    iucn:latestUpdate _:Nd073428e017746f4b6e3c340b841c122 .
 
 base:EFG_M3_7 a rdfs:Resource,
         skos:Concept,
@@ -9475,15 +9553,15 @@ des poissons démersaux. Il s\\'agit d\\'écosystèmes disparates où la
 connectivité repose sur la dispersion des larves planctoniques."""@fr ;
     iucn:efgCode "M3.7"^^xsd:string ;
     iucn:keyFeatures "Systems supported by microbial chemoautotrophy with high biomass of relatively low diversity, highly speciliased, fauna"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nab6bf64706fd40c1be54a99d656f02dc ;
+        _:N89fa96733e1a4f8b81446167fdb55a80,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nab6bf64706fd40c1be54a99d656f02dc .
+    iucn:latestUpdate _:N89fa96733e1a4f8b81446167fdb55a80 .
 
 base:EFG_TF1_1 a rdfs:Resource,
         skos:Concept,
@@ -9575,15 +9653,15 @@ mais de nombreuses plantes présentent une plasticité de la forme des
 feuilles et peuvent recruter à l\\'ombre."""@fr ;
     iucn:efgCode "TF1.1"^^xsd:string ;
     iucn:keyFeatures "Evergreen closed-canopy forests in tropical swamps and riparian zones, differing between high and low nutrients waters, and supporting complex trophic networks"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N2bb9058a910d4df88d3577e9d44f13ac,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Ne805edb15f364a04982672f9583c9cb9 ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Ne805edb15f364a04982672f9583c9cb9 .
+    iucn:latestUpdate _:N2bb9058a910d4df88d3577e9d44f13ac .
 
 base:EFG_TF1_2 a rdfs:Resource,
         skos:Concept,
@@ -9678,15 +9756,15 @@ pendant les périodes de sécheresse. Les mammifères herbivores itinérants
 important sur la structure et le recrutement de la végétation."""@fr ;
     iucn:efgCode "TF1.2"^^xsd:string ;
     iucn:keyFeatures "Permently to seasonally wet (or flooded), nutrient poor, to nutrient rich, open to closed canopy forests, often on organic soils (peat); poor in woody species, high abundance of mosses and sedges and no to open woody species cover"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nde91cfae6c3b47358f3a4331f805022d ;
+        _:Nd997a08f1dae43db81e87ffc13a0a029,
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nde91cfae6c3b47358f3a4331f805022d .
+    iucn:latestUpdate _:Nd997a08f1dae43db81e87ffc13a0a029 .
 
 base:EFG_TF1_3 a rdfs:Resource,
         skos:Concept,
@@ -9773,15 +9851,15 @@ rhizomes, mais produisent également une abondance de graines dispersées
 par le vent et l\\'eau."""@fr ;
     iucn:efgCode "TF1.3"^^xsd:string ;
     iucn:keyFeatures "Shallow permanently inundated freshwater wetlands, dominated by herbaceous macrophytes, supporting high primary productivity and complex trophic networks with abundant insects, birds and amphibians"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N5b2cb3ddf0e54735a83914afb6e483ac,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:N6f6b87295f7e4864930832acaa2187e6 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5b2cb3ddf0e54735a83914afb6e483ac .
+    iucn:latestUpdate _:N6f6b87295f7e4864930832acaa2187e6 .
 
 base:EFG_TF1_4 a rdfs:Resource,
         skos:Concept,
@@ -9874,15 +9952,15 @@ particulier des poissons, coïncident avec la disponibilité de la
 nourriture déterminée par les régimes d\\'inondation."""@fr ;
     iucn:efgCode "TF1.4"^^xsd:string ;
     iucn:keyFeatures "High productivity wetlands with strongly seasonal water regimes, supporting functionally diverse mosaics of aquatic plants and seasonally variable trophic networks of invertebrates, amphibians, crocodilians and birds"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N8ebde59c0a6a46f8972f0743795fae99 ;
+        _:Nb6b99bb2fdc24c0a801d2407248e14d8,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N8ebde59c0a6a46f8972f0743795fae99 .
+    iucn:latestUpdate _:Nb6b99bb2fdc24c0a801d2407248e14d8 .
 
 base:EFG_TF1_5 a rdfs:Resource,
         skos:Concept,
@@ -9965,15 +10043,15 @@ détritivores collecteurs-cueilleurs, ce qui indique une dépendance à
 l\\'égard des voies énergétiques hétérotrophes."""@fr ;
     iucn:efgCode "TF1.5"^^xsd:string ;
     iucn:keyFeatures "Highly productive floodplains when flooded, supporting highly diverse and complex trophic networks, followed by long periods of low productivity when dry"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:N6b9cbcf53ee24faa9f89acd34b9c7e51,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N46654d64797e45509fd1bc2e3f177830,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6b9cbcf53ee24faa9f89acd34b9c7e51 .
+    iucn:latestUpdate _:N46654d64797e45509fd1bc2e3f177830 .
 
 base:EFG_TF1_6 a rdfs:Resource,
         skos:Concept,
@@ -10071,12 +10149,12 @@ l\\'hémisphère sud."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc0302596bddd4153a5995a8352a41d21,
+        _:N5f16c3eaf18440539385947b8f34e3c9,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc0302596bddd4153a5995a8352a41d21 .
+    iucn:latestUpdate _:N5f16c3eaf18440539385947b8f34e3c9 .
 
 base:EFG_TF1_7 a rdfs:Resource,
         skos:Concept,
@@ -10174,15 +10252,15 @@ la plupart itinérants, mais on trouve aussi des amphibiens et des
 oiseaux résidents spécialisés."""@fr ;
     iucn:efgCode "TF1.7"^^xsd:string ;
     iucn:keyFeatures "Permanently groundwater-logged, nutrient poor to (moderately) nutrient-rich sites, often organic soils; high abundance of mosses, sedges and no to open woody species cover"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N560cbcd310c9417fa48eaf85d6790a90,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nc76795438ae0465cb10f99ddf706a24c ;
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nc76795438ae0465cb10f99ddf706a24c .
+    iucn:latestUpdate _:N560cbcd310c9417fa48eaf85d6790a90 .
 
 base:Realm_TF a rdfs:Resource,
         skos:Concept,
@@ -10282,15 +10360,19 @@ vie dormants dominent dans les lacs éphémères) et la chimie de l\\'eau
         "Lakes biome"@es,
         "Lakes biome"@fr ;
     iucn:biomeCode "F2"^^xsd:string ;
-    iucn:languageVersion _:N21ddca3ecb074eaa9d91910402f8e354,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N2428a9a858474181a54474cd6b50e333,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N21ddca3ecb074eaa9d91910402f8e354 .
+    iucn:latestUpdate _:N2428a9a858474181a54474cd6b50e333 .
 
 base:Biome_M1 a rdfs:Resource,
         skos:Concept,
@@ -10356,15 +10438,19 @@ larves et le flux des ressources."""@fr ;
         "Marine shelf biome"@es,
         "Marine shelf biome"@fr ;
     iucn:biomeCode "M1"^^xsd:string ;
-    iucn:languageVersion _:N00e607eba4f841e7b4c8dde2f2053de9,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N6fa40df3b375413796d7172481655f4f,
+        [ dcterms:language "es"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2021-12-30"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N00e607eba4f841e7b4c8dde2f2053de9 .
+    iucn:latestUpdate _:N6fa40df3b375413796d7172481655f4f .
 
 base:EFG_F2_1 a rdfs:Resource,
         skos:Concept,
@@ -10465,12 +10551,12 @@ biote."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nb99ed9a4d8634a65ba27af0c128ef06b,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nbd6cb9715d524f3dadbcbbf7c1cbd1f0 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nbd6cb9715d524f3dadbcbbf7c1cbd1f0 .
+    iucn:latestUpdate _:Nb99ed9a4d8634a65ba27af0c128ef06b .
 
 base:EFG_F2_10 a rdfs:Resource,
         skos:Concept,
@@ -10561,15 +10647,15 @@ un isolement stable pendant des millions d\\'années sous des pressions de
 sélection extrêmes."""@fr ;
     iucn:efgCode "F2.10"^^xsd:string ;
     iucn:keyFeatures "Lakes beneath permanent ice sheets with a truncated microbial food web, including chemoautotrophic and heterotrophic of bacteria and archaea"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N0eae0db40ef84e2e941c711e8fb18736,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb938326d30ba482887d276df46735ae7 ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb938326d30ba482887d276df46735ae7 .
+    iucn:latestUpdate _:N0eae0db40ef84e2e941c711e8fb18736 .
 
 base:EFG_F2_2 a rdfs:Resource,
         skos:Concept,
@@ -10671,12 +10757,12 @@ biote."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N3dad6e43527c44c9b8b64bcefa4bba43,
+        _:N81753b98d6f341899f2c606a3f8899f9,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N3dad6e43527c44c9b8b64bcefa4bba43 .
+    iucn:latestUpdate _:N81753b98d6f341899f2c606a3f8899f9 .
 
 base:EFG_F2_3 a rdfs:Resource,
         skos:Concept,
@@ -10780,15 +10866,15 @@ de poissons. Les invertébrés et les amphibiens peuvent atteindre une
 diversité et une abondance élevées en l\\'absence de poissons."""@fr ;
     iucn:efgCode "F2.3"^^xsd:string ;
     iucn:keyFeatures "Mostly small and shallow well mixed freshwater lakes with seasonal patterns of filling and seasonally variable abundance and composition of aquatic biota, including species with dormant life phases and some that retreat to refuges in dry seasons"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion _:N0a0b2935ce1f42379d5a0aa6ebac91ec,
+        [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nccab546b75434bbf84585b0a32b7438f ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nccab546b75434bbf84585b0a32b7438f .
+    iucn:latestUpdate _:N0a0b2935ce1f42379d5a0aa6ebac91ec .
 
 base:EFG_F2_4 a rdfs:Resource,
         skos:Concept,
@@ -10884,15 +10970,15 @@ hivers froids sous la glace et les schémas saisonniers de disponibilité
 des nutriments."""@fr ;
     iucn:efgCode "F2.4"^^xsd:string ;
     iucn:keyFeatures "Waterbodies with frozen surfaces for at least one month of the year, with spring thaw initiating trophic successional dynamics beginning with a flush of diatom productivity. Deeper lakes may be cold stratified and fish tolerate oxygen depletion in winter"@en ;
-    iucn:languageVersion _:N6728f1460f8c431f93de459332516253,
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:Na16372ae76be49ae890726e048113f31,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N6728f1460f8c431f93de459332516253 .
+    iucn:latestUpdate _:Na16372ae76be49ae890726e048113f31 .
 
 base:EFG_F2_5 a rdfs:Resource,
         skos:Concept,
@@ -10987,9 +11073,9 @@ prochain épisode de remplissage."""@fr ;
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:Nb4fc6fc51f6a49f1862ab09383a3d140 ;
+        _:Nfffa7c85d8154c38add9cd16230447d7 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:Nb4fc6fc51f6a49f1862ab09383a3d140 .
+    iucn:latestUpdate _:Nfffa7c85d8154c38add9cd16230447d7 .
 
 base:EFG_F2_6 a rdfs:Resource,
         skos:Concept,
@@ -11082,15 +11168,15 @@ aux niveaux hypersalins. De nombreux organismes tolèrent une salinité
 qui limite la productivité et la capacité concurrentielle."""@fr ;
     iucn:efgCode "F2.6"^^xsd:string ;
     iucn:keyFeatures "Permanent waterbodies with high inorganic solute concentrations (particularly sodium), supporting simple trophic networks, including cyanobacteria and algae, invertebrates and specialist birds"@en ;
-    iucn:languageVersion _:N431fcd25e4374149bd0921c63a543c65,
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
+    iucn:languageVersion _:N4a341de373164b8b8b11e48be5c35f03,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N431fcd25e4374149bd0921c63a543c65 .
+    iucn:latestUpdate _:N4a341de373164b8b8b11e48be5c35f03 .
 
 base:EFG_F2_7 a rdfs:Resource,
         skos:Concept,
@@ -11185,15 +11271,15 @@ courtes périodes de croissance et de reproduction interrompues par
 l\\'assèchement jusqu\\'au prochain épisode de comblement."""@fr ;
     iucn:efgCode "F2.7"^^xsd:string ;
     iucn:keyFeatures "Salt lakes with salt crusts in long dry phases and short productive wet phases. Trophic networks are simple but high productivity is driven by bacteria and phytoplankton, supporting specialist birds"@en ;
-    iucn:languageVersion _:N7bfa08ccf5144920ba5aa92217dc66c7,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
+        _:N6fc5fe2e415e4b65ac12b811df4e6a0e,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N7bfa08ccf5144920ba5aa92217dc66c7 .
+    iucn:latestUpdate _:N6fc5fe2e415e4b65ac12b811df4e6a0e .
 
 base:EFG_F2_8 a rdfs:Resource,
         skos:Concept,
@@ -11281,15 +11367,15 @@ ressources et favorisent la dispersion d\\'autres biotes entre les zones
 humides isolées dans la matrice des zones arides."""@fr ;
     iucn:efgCode "F2.8"^^xsd:string ;
     iucn:keyFeatures "Groundwater dependent ecosystems from artesian waters discharged to the surface, maintaining relatively stable water levels. Often insular systems with high endemism"@en ;
-    iucn:languageVersion _:N8de2ccbe864b479c9a1dd606688dd276,
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd019e1d8a2294ba5a123294503e5b835,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N8de2ccbe864b479c9a1dd606688dd276 .
+    iucn:latestUpdate _:Nd019e1d8a2294ba5a123294503e5b835 .
 
 base:EFG_F2_9 a rdfs:Resource,
         skos:Concept,
@@ -11393,15 +11479,15 @@ source, à mesure que les températures se refroidissent et que les
 minéraux précipitent."""@fr ;
     iucn:efgCode "F2.9"^^xsd:string ;
     iucn:keyFeatures "Hot springs, geysers and mud pots dependent on groundwater interactions with magma and hot rocks, supporting highly specialised low diversity biota tolerate of high temperatures and high concentrations of inorganic salts"@en ;
-    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
-            dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N30bef81988d14070ba04e2e19f01ca32 ;
+        _:Na491061c8c4946c49935dc9a62e4bd0f,
+        [ dcterms:language "fr"^^xsd:language ;
+            dcterms:modified "2025-09-15"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N30bef81988d14070ba04e2e19f01ca32 .
+    iucn:latestUpdate _:Na491061c8c4946c49935dc9a62e4bd0f .
 
 base:EFG_M1_1 a rdfs:Resource,
         skos:Concept,
@@ -11484,12 +11570,12 @@ herbiers marins, bien qu\\'elle ait tendance à \\"jardiner\\" plutôt qu\\'à
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N5fc4fd22d13b471fa68000933050e91b,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Ne999cbbc141144a6b2b2d94f561b27e2 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5fc4fd22d13b471fa68000933050e91b .
+    iucn:latestUpdate _:Ne999cbbc141144a6b2b2d94f561b27e2 .
 
 base:EFG_M1_10 a rdfs:Resource,
         skos:Concept,
@@ -11589,15 +11675,15 @@ contrebalançant ainsi la lenteur de la récupération après une
 perturbation."""@fr ;
     iucn:efgCode "M1.10"^^xsd:string ;
     iucn:keyFeatures "Biogenic beds formed by non-geniculate (non-jointed), free-living coralline algae on soft substrates supporting diverse benthic and demersal fauna and bacterial biofilms"@en ;
-    iucn:languageVersion _:N1322d12d02c54046aa959ff5f92e8752,
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+            dcterms:modified "2022-06-29"^^xsd:date ;
+            owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        [ dcterms:language "en"^^xsd:language ;
-            dcterms:modified "2022-06-29"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+        _:N94764cb3b2a34df9a7ebdacc53439ba9 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N1322d12d02c54046aa959ff5f92e8752 .
+    iucn:latestUpdate _:N94764cb3b2a34df9a7ebdacc53439ba9 .
 
 base:EFG_M1_2 a rdfs:Resource,
         skos:Concept,
@@ -11693,15 +11779,15 @@ forêts par des landes d\\'oursins, qui persistent en tant qu\\'état stable
 alternatif."""@fr ;
     iucn:efgCode "M1.2"^^xsd:string ;
     iucn:keyFeatures "Hard subtidal substrates in cold, clear nutrient-rich waters with dominant brown algal macrophytes, associated epibiota, benthic macrofauna, fish & mammals"@en ;
-    iucn:languageVersion _:N77dd053ce5aa4b1bb85890c7adb42b4c,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nf1c2f2e68a214aca955b1295f2d25f34 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N77dd053ce5aa4b1bb85890c7adb42b4c .
+    iucn:latestUpdate _:Nf1c2f2e68a214aca955b1295f2d25f34 .
 
 base:EFG_M1_3 a rdfs:Resource,
         skos:Concept,
@@ -11795,12 +11881,12 @@ grands vertébrés sont les tortues marines et les requins."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N90453e68a3ca4062894edc756db05ef5,
+        _:Nb802b1c0243b4679bfd6b65fe7aca75d,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N90453e68a3ca4062894edc756db05ef5 .
+    iucn:latestUpdate _:Nb802b1c0243b4679bfd6b65fe7aca75d .
 
 base:EFG_M1_4 a rdfs:Resource,
         skos:Concept,
@@ -11892,15 +11978,15 @@ intertidaux, la survie des mollusques peut augmenter avec la densité en
 raison de l\\'auto-ombrage et de la rétention de l\\'humidité."""@fr ;
     iucn:efgCode "M1.4"^^xsd:string ;
     iucn:keyFeatures "Intertidal or subtidal three-dimensional stuctures, formed primarily by oysters and mussels, and supporting algae, invertebrates and fishes."@en ;
-    iucn:languageVersion _:N9343dcaff6934c8b9633567d26741a3c,
-        [ dcterms:language "fr"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:N6dd8b676f3804f7c88330b3571225906 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N9343dcaff6934c8b9633567d26741a3c .
+    iucn:latestUpdate _:N6dd8b676f3804f7c88330b3571225906 .
 
 base:EFG_M1_5 a rdfs:Resource,
         skos:Concept,
@@ -11993,12 +12079,12 @@ lents, ils limitent la récupération après une perturbation."""@fr ;
     iucn:languageVersion [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N8689f9481ca74c7cbbe5235cd6f09cce,
+        _:N114a0a59afe04eddb8a65be23f03deaf,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N8689f9481ca74c7cbbe5235cd6f09cce .
+    iucn:latestUpdate _:N114a0a59afe04eddb8a65be23f03deaf .
 
 base:EFG_M1_6 a rdfs:Resource,
         skos:Concept,
@@ -12097,7 +12183,7 @@ cachettes pour les prédateurs embusqués, y compris les crustacés et les
 poissons."""@fr ;
     iucn:efgCode "M1.6"^^xsd:string ;
     iucn:keyFeatures "Productive systems with functionally diverse sessile and mobile biota, and a strong depth gradient"@en ;
-    iucn:languageVersion _:N5a598ab2bbe54ee19531e61b9a8ca61f,
+    iucn:languageVersion _:N577d253260564947984402e1bfcbdbae,
         [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
@@ -12105,7 +12191,7 @@ poissons."""@fr ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N5a598ab2bbe54ee19531e61b9a8ca61f .
+    iucn:latestUpdate _:N577d253260564947984402e1bfcbdbae .
 
 base:EFG_M1_7 a rdfs:Resource,
         skos:Concept,
@@ -12189,12 +12275,12 @@ coquilles ou le camouflage."""@fr ;
     iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N55936441523c4c72ad3a9c30ed65b731,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nefa79079ec0d4ed6ab936b7d110b101a ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N55936441523c4c72ad3a9c30ed65b731 .
+    iucn:latestUpdate _:Nefa79079ec0d4ed6ab936b7d110b101a .
 
 base:EFG_M1_8 a rdfs:Resource,
         skos:Concept,
@@ -12284,15 +12370,15 @@ bioturbation associée a une influence sur la diversité des microhabitats
 et la disponibilité des ressources dans les sédiments."""@fr ;
     iucn:efgCode "M1.8"^^xsd:string ;
     iucn:keyFeatures "Soft sediment with limited primary production, abundant micro- and macro-detritivores and associated foraging predators"@en ;
-    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion _:N24cae666df7241318f1f8dc834cb8d7d,
+        [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
-        _:N73e75d71c11a4f6380d6167ee3aa2cc2,
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ] ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N73e75d71c11a4f6380d6167ee3aa2cc2 .
+    iucn:latestUpdate _:N24cae666df7241318f1f8dc834cb8d7d .
 
 base:EFG_M1_9 a rdfs:Resource,
         skos:Concept,
@@ -12375,15 +12461,15 @@ les conditions propices à la concentration et à la rétention des œufs et
 des larves sur le littoral avant leur maturité."""@fr ;
     iucn:efgCode "M1.9"^^xsd:string ;
     iucn:keyFeatures "Cool, wind-driven systems with high productivity and variability, supporting abundant plankton, fish, mammals and seabirds"@en ;
-    iucn:languageVersion _:N2c9dfc38c0a9414a86d4b36c3f2f7677,
-        [ dcterms:language "en"^^xsd:language ;
+    iucn:languageVersion [ dcterms:language "en"^^xsd:language ;
             dcterms:modified "2022-04-06"^^xsd:date ;
             owl:versionInfo "v2.1"^^xsd:string ],
         [ dcterms:language "fr"^^xsd:language ;
             dcterms:modified "2025-09-15"^^xsd:date ;
-            owl:versionInfo "v2.1"^^xsd:string ] ;
+            owl:versionInfo "v2.1"^^xsd:string ],
+        _:Nd13d341bfcaa45a98d4e133fbb658b37 ;
     iucn:latestModificationLanguage "es"^^xsd:language ;
-    iucn:latestUpdate _:N2c9dfc38c0a9414a86d4b36c3f2f7677 .
+    iucn:latestUpdate _:Nd13d341bfcaa45a98d4e133fbb658b37 .
 
 base:Realm_MT a rdfs:Resource,
         skos:Concept,
@@ -12557,543 +12643,543 @@ base:IUCNEcosystemTypology a skos:ConceptScheme ;
         base:Realm_TF ;
     skos:prefLabel "IUCN Global Ecosystem Typology"@en .
 
-_:N00e607eba4f841e7b4c8dde2f2053de9 dcterms:language "es"^^xsd:language ;
+_:N08446550325b454798f07b8088928f7f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N02e487e9d6594af7aa66cabf6e69b40e dcterms:language "es"^^xsd:language ;
+_:N0a0b2935ce1f42379d5a0aa6ebac91ec dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N030a5dac1acc498789b322756a9d36fe dcterms:language "es"^^xsd:language ;
+_:N0eae0db40ef84e2e941c711e8fb18736 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N04cb8653a637440f89b87f9f969c467d dcterms:language "es"^^xsd:language ;
+_:N106f27da1f2b464eb93784154db7e769 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N07301cdd911a402e94738102f72da6d3 dcterms:language "es"^^xsd:language ;
+_:N114a0a59afe04eddb8a65be23f03deaf dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N07380164fe04478abf97cc6c07fdfa38 dcterms:language "es"^^xsd:language ;
+_:N15d618182c144fc3bc3027190e6d003d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N084459d9a03146be83a723783a4109b8 dcterms:language "es"^^xsd:language ;
+_:N167fe85cf1e645359be115dd5d615c3f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N0aec67440378433c86243f84679aff85 dcterms:language "es"^^xsd:language ;
+_:N197eee3abb0e43c8a9b67fe738b3489e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N0c9a76f650514a3980ead737a7c9cd38 dcterms:language "es"^^xsd:language ;
+_:N199fe6422524466baaa03742c3d00099 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N1322d12d02c54046aa959ff5f92e8752 dcterms:language "es"^^xsd:language ;
+_:N1b2162c582d84f9f988f3d51c7318f43 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N168f613ab6c74b8a9e2d8f630135d275 dcterms:language "es"^^xsd:language ;
+_:N1eb5cd4fedc845059e8fff64c7b0859c dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N189686c6909844d98fdba735edc104ee dcterms:language "es"^^xsd:language ;
+_:N1fc3ef4b80f448378f06c1f40eabbcc2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N190db00d44334996bf571b2366e19abb dcterms:language "es"^^xsd:language ;
+_:N23b3dc46966740ff98968eb2826ee88b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N1d7ee27b65374f34a01748cc41438fe3 dcterms:language "es"^^xsd:language ;
+_:N23b46336ad4f44a4a4be934e29304761 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N20ff9d6cbc654380aaf90506fc30c1d6 dcterms:language "es"^^xsd:language ;
+_:N2428a9a858474181a54474cd6b50e333 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N21ddca3ecb074eaa9d91910402f8e354 dcterms:language "es"^^xsd:language ;
+_:N249f1a7155e74c889ae51e2f6c51445d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N220b104ee5934ecdbf22a6b3b8883eee dcterms:language "es"^^xsd:language ;
+_:N24cae666df7241318f1f8dc834cb8d7d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N2c9dfc38c0a9414a86d4b36c3f2f7677 dcterms:language "es"^^xsd:language ;
+_:N2522d84206a64840a45d7f97536a9912 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N2d662806c4ce469fb32ba1d4ef3af486 dcterms:language "es"^^xsd:language ;
+_:N27f30255bceb4977abd70785a44a52ef dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N30bef81988d14070ba04e2e19f01ca32 dcterms:language "es"^^xsd:language ;
+_:N28d1d9166f98499b83105cc339d9b43a dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N3331fb1deb264733abbaec79b6c7a452 dcterms:language "es"^^xsd:language ;
+_:N2bb9058a910d4df88d3577e9d44f13ac dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N37ef92de5d584e0a8928acc8aa13dc93 dcterms:language "es"^^xsd:language ;
+_:N30df16c02a6b447891dbc76373646a13 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N39347ecd65a9438aa0a10779fdf07bd1 dcterms:language "es"^^xsd:language ;
+_:N3161fa44ca9f46cf911d16ae06ad7dda dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N39f03af32dc642e2b1a5220ed98da7c5 dcterms:language "es"^^xsd:language ;
+_:N31eea801bfcf4b9ea079d060da9016bc dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N3b5b722e16e442bd82b5a0a2e2dbabca dcterms:language "es"^^xsd:language ;
+_:N346e5b1dcd1e4ffeb8cb2e1061508b02 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N3ba0f6cb651f4349bf01f1a97df81cc5 dcterms:language "es"^^xsd:language ;
+_:N37b86cc960dc498ba7f572522231e7ac dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N3dad6e43527c44c9b8b64bcefa4bba43 dcterms:language "es"^^xsd:language ;
+_:N383aa4c886d844e1a07eb68f4f3d9d1b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N40216e662d3b4695ab1aa2510e9ffc2d dcterms:language "es"^^xsd:language ;
+_:N3a72a172db444da4b3fb5b1e32cadad2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N431fcd25e4374149bd0921c63a543c65 dcterms:language "es"^^xsd:language ;
+_:N3faa258292554581b4744dd93749a424 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4571faea01b64a9aa89c1330d1ee7352 dcterms:language "es"^^xsd:language ;
+_:N40e5b4e05b7e4d848275b7cec87d16c4 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N491ac273968443ae8e5a2ee7e9d645ec dcterms:language "es"^^xsd:language ;
+_:N40ff4165bb904d3689cb0c8937dae9ff dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4a7ad879136744c28159a7bcb05fb6f0 dcterms:language "es"^^xsd:language ;
+_:N46654d64797e45509fd1bc2e3f177830 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4ba2cbfba8fd4e699b8c1fa66bb19707 dcterms:language "es"^^xsd:language ;
+_:N4718da7165fa4ac88d1bccf9e964cde9 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4dc6b1ff4d3a4e60b6c0c18c0c3f4359 dcterms:language "es"^^xsd:language ;
+_:N47b13528f15a43f6a80bcd27a06ec470 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4e5969e9e1664610be895cd3c2911abd dcterms:language "es"^^xsd:language ;
+_:N48047255b5dc49449728d3dff36e34fd dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N4f567a5d71bb414ab3f29e28b1c555f4 dcterms:language "es"^^xsd:language ;
+_:N4839d4bcd2294c00b38d8c552ce7c860 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N50395377b5c6485e80cf9c6554dde50d dcterms:language "es"^^xsd:language ;
+_:N48798ff1803747e89d3e0b3e8a916850 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N515a1743f082441abb8490209900f48c dcterms:language "es"^^xsd:language ;
+_:N48bc6a77b03b4913904b0c03971cfd03 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5270d651476b44dcba33ee3de548a217 dcterms:language "es"^^xsd:language ;
+_:N4a341de373164b8b8b11e48be5c35f03 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N55936441523c4c72ad3a9c30ed65b731 dcterms:language "es"^^xsd:language ;
+_:N4b4f59bbb5a34887a39d73443fed99b1 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N56adb2e3175d4292b4b699eed89862cb dcterms:language "es"^^xsd:language ;
+_:N4e1393b4c2264289801dccdf874a9171 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N57669aa234444b569fff36e33171c649 dcterms:language "es"^^xsd:language ;
+_:N52514d00c6e24471aed76b5b70925cb2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N59f244d7b596481d9eb89385cd6b6391 dcterms:language "es"^^xsd:language ;
+_:N52896f9b8d374c59bcadd2fc0e9fdaa9 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5a598ab2bbe54ee19531e61b9a8ca61f dcterms:language "es"^^xsd:language ;
+_:N52edf2e636dd4585a2ae05ae8efda022 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5b2cb3ddf0e54735a83914afb6e483ac dcterms:language "es"^^xsd:language ;
+_:N560cbcd310c9417fa48eaf85d6790a90 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5d9b6bf71f834ea59272ce49b1b374aa dcterms:language "es"^^xsd:language ;
+_:N562756b3a5dd417bab75039a41d1d801 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5ef6d894c49a473f9ecf5f35bc176350 dcterms:language "es"^^xsd:language ;
+_:N577d253260564947984402e1bfcbdbae dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N5fc4fd22d13b471fa68000933050e91b dcterms:language "es"^^xsd:language ;
+_:N58f03c5eb4fd434abebff0e521d5efa3 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N60ce6d62504448d4be80656410a3e1db dcterms:language "es"^^xsd:language ;
+_:N5a2221e241c24c9c9278e682cfcb1f1a dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N63374c459a814ade9dca1385184d9df0 dcterms:language "es"^^xsd:language ;
+_:N5b64a9eda97a421fa1631ee8593068b2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N63fb59dfaaaa4fcc8fcd453d763cea9c dcterms:language "es"^^xsd:language ;
+_:N5e549bdafd0542fc83e401a93bdf0705 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6728f1460f8c431f93de459332516253 dcterms:language "es"^^xsd:language ;
+_:N5f16c3eaf18440539385947b8f34e3c9 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6b9cbcf53ee24faa9f89acd34b9c7e51 dcterms:language "es"^^xsd:language ;
+_:N6500a45142364359ab9fdc5cbd4d9ef7 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6c9c4a8529ea47eaa66d9c0b062fd51f dcterms:language "es"^^xsd:language ;
+_:N6986b37c752d4327ae69ddca7cdf742b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6d885f33a0124a4ba8a474241540551f dcterms:language "es"^^xsd:language ;
+_:N6a19d269509f4f24b622775b77e448e0 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6dcf63e8719849789c0ad558b476829c dcterms:language "es"^^xsd:language ;
+_:N6a806df451cd43c1810af41569164c2c dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6f570a35731e42169eea8d37490c5f18 dcterms:language "es"^^xsd:language ;
+_:N6dd8b676f3804f7c88330b3571225906 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N6fd0a302f95c4ec4a9b0c0593bfdaf16 dcterms:language "es"^^xsd:language ;
+_:N6f6b87295f7e4864930832acaa2187e6 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N73e75d71c11a4f6380d6167ee3aa2cc2 dcterms:language "es"^^xsd:language ;
+_:N6fa40df3b375413796d7172481655f4f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N745ef8ec7f114ed5b6cdcb77c3b458c9 dcterms:language "es"^^xsd:language ;
+_:N6fc5fe2e415e4b65ac12b811df4e6a0e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N749ad52e4c214db2a811c4c65dc22e6f dcterms:language "es"^^xsd:language ;
+_:N72d307c364424936b978c39cf52627b8 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N74de3276a0cd4dfbb369c2602671fec9 dcterms:language "es"^^xsd:language ;
+_:N73e4cf9874a4464fb14740e25eb7ebf4 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N756ba8321472405d84c516abfa329829 dcterms:language "es"^^xsd:language ;
+_:N78d958b54a3d4cae888a3dc4dcca2a2e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N77dd053ce5aa4b1bb85890c7adb42b4c dcterms:language "es"^^xsd:language ;
+_:N79a634762b1046df9d4c894c6169fa34 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N7bc2628f100d47f38378dbe1b6c8b67b dcterms:language "es"^^xsd:language ;
+_:N800f20a9f161453b8f999a634043013d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N7bfa08ccf5144920ba5aa92217dc66c7 dcterms:language "es"^^xsd:language ;
+_:N81753b98d6f341899f2c606a3f8899f9 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N7cc3b4eff9324188aa0613beec9344f4 dcterms:language "es"^^xsd:language ;
+_:N81840a94951f47b999733fa8b03473ff dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N7d618927129c4efd87e22d7c9983044b dcterms:language "es"^^xsd:language ;
+_:N8404c9d2f95346f09a7f705bd9ffb02b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N7f1d9a1a3f45418abeb5b8d8b82bc88f dcterms:language "es"^^xsd:language ;
+_:N84e000e5ae914af58e0ebe4c317ce249 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N80a98964ecd343edbe6af5de232e78d8 dcterms:language "es"^^xsd:language ;
+_:N8688e9d19b51416db374d0da7611ed4e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N83c90d958cf8413797326802fd2efea6 dcterms:language "es"^^xsd:language ;
+_:N89fa96733e1a4f8b81446167fdb55a80 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N84aa3c1c93924b709a9563cf7f523362 dcterms:language "es"^^xsd:language ;
+_:N8cf8c056aebe4574b10f6c6bb09f97b5 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N8689f9481ca74c7cbbe5235cd6f09cce dcterms:language "es"^^xsd:language ;
+_:N900eddeba8cd40f493ebd8af7f351868 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N86963802a2184e569d87400a9929e2f6 dcterms:language "es"^^xsd:language ;
+_:N90a28befac0e43d18ab9783003a0c990 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N86ea3735f6364f2dba07381dd0796d06 dcterms:language "es"^^xsd:language ;
+_:N926f11c377f54309af570544227f1cb0 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N8b7d16dd586b4ef39b99642df8e89bdf dcterms:language "es"^^xsd:language ;
+_:N94764cb3b2a34df9a7ebdacc53439ba9 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N8cd4d2182e354155b2fa2d9d91ce8849 dcterms:language "es"^^xsd:language ;
+_:N94aeebaac308475d925b2b3beea38a7f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N8de2ccbe864b479c9a1dd606688dd276 dcterms:language "es"^^xsd:language ;
+_:N96c0e5ba45bb4115885a6690534bc299 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N8ebde59c0a6a46f8972f0743795fae99 dcterms:language "es"^^xsd:language ;
+_:N997d18356780483493e0dfba329c2ad8 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N90453e68a3ca4062894edc756db05ef5 dcterms:language "es"^^xsd:language ;
+_:N9af2077c0b5b458ca71aacaa493ffeab dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N91bffff468124d97b1427c7ae1e5ff68 dcterms:language "es"^^xsd:language ;
+_:Na16372ae76be49ae890726e048113f31 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N9343dcaff6934c8b9633567d26741a3c dcterms:language "es"^^xsd:language ;
+_:Na3a4bb94316a4504aad4c95d467fdcea dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N95d07e05a9044122a93bb3260c0af413 dcterms:language "es"^^xsd:language ;
+_:Na491061c8c4946c49935dc9a62e4bd0f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N96239b670be64784a81428a7c6709230 dcterms:language "es"^^xsd:language ;
+_:Na51cb0037e8f4b4082f6d5b1be22961c dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:N99e743a983b04288b901f26d802e2e7b dcterms:language "es"^^xsd:language ;
+_:Na8ed779c5da646868dcabc478858ec83 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na17c4ec6fcc84340a29348f0c319643a dcterms:language "es"^^xsd:language ;
+_:Nae2409420950468da15a984e76a7875e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na309c757a0bb42a1b79bf56a54f9e335 dcterms:language "es"^^xsd:language ;
+_:Nb146dfd0142c4ad2add0b87ba74ac0d3 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na36d30ba8ca54df9abe0d01a32eb6c6a dcterms:language "es"^^xsd:language ;
+_:Nb44e9b91fdf848868f53a4ccf6b46c34 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na47dd9de4d304135a0eb835fe11aea5b dcterms:language "es"^^xsd:language ;
+_:Nb6669c3daf5840c4945b5676d6c25b67 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na5c06ab00e864642b9443a2d60504aee dcterms:language "es"^^xsd:language ;
+_:Nb6b99bb2fdc24c0a801d2407248e14d8 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Na8040438a9ce49688e43b7d8f2542214 dcterms:language "es"^^xsd:language ;
+_:Nb7a1b3f84e36442fa67ff39e09de576d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nab6bf64706fd40c1be54a99d656f02dc dcterms:language "es"^^xsd:language ;
+_:Nb802b1c0243b4679bfd6b65fe7aca75d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Naf3e16589ccc4e8fb8cbb145e5c5d538 dcterms:language "es"^^xsd:language ;
+_:Nb99ed9a4d8634a65ba27af0c128ef06b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb4b25846788e42079cc67a8d473bfd69 dcterms:language "es"^^xsd:language ;
+_:Nb9a54ea443124a13b1c7592f32adbe3b dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb4fc6fc51f6a49f1862ab09383a3d140 dcterms:language "es"^^xsd:language ;
+_:Nbcf8222d4bc34b49ab5863a45085f57f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb5ad58b988e548d89310f4770d82ee53 dcterms:language "es"^^xsd:language ;
+_:Nbd01464235fd467cb278d81feb9a8c55 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb657d7da23014b54b63f6605d0847c0f dcterms:language "es"^^xsd:language ;
+_:Nc2c1a110f9d4495c8f2769c29397c5e5 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb7a5ca2bbc4c40bba77d70f2f7806e8c dcterms:language "es"^^xsd:language ;
+_:Nc654ba4a71164892bdbfa5507d737711 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb938326d30ba482887d276df46735ae7 dcterms:language "es"^^xsd:language ;
+_:Nc6f42ba90607432d93a70b990a8263ad dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb98e57d9eab64866bbe2ff55e96db694 dcterms:language "es"^^xsd:language ;
+_:Nc73abc6e9b68428585bf6ccdbf9f9733 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nb9f252a7681249feafcbe84152766010 dcterms:language "es"^^xsd:language ;
+_:Ncc10cc6fb3c1464fb37ccdf596bc7887 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nbd6cb9715d524f3dadbcbbf7c1cbd1f0 dcterms:language "es"^^xsd:language ;
+_:Ncd15ea91cf90445ea84423a37ba48ed1 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nbf325d6d43d0457e8232aaafc1e5fd04 dcterms:language "es"^^xsd:language ;
+_:Nce7dd58b2f794df88003bbdd35d96e5c dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc0302596bddd4153a5995a8352a41d21 dcterms:language "es"^^xsd:language ;
+_:Ncee5c481e5584d8ea14759a66a251202 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc1d3095d0de840ceaba00a7541c1c4cf dcterms:language "es"^^xsd:language ;
+_:Nd019e1d8a2294ba5a123294503e5b835 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc221fc1672d945f59348417fcf6e77af dcterms:language "es"^^xsd:language ;
+_:Nd073428e017746f4b6e3c340b841c122 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc76795438ae0465cb10f99ddf706a24c dcterms:language "es"^^xsd:language ;
+_:Nd13d341bfcaa45a98d4e133fbb658b37 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc7ebb65ed1e94e56b9991a45f7e58d68 dcterms:language "es"^^xsd:language ;
+_:Nd164f06a63bb4d50a4f4a4c079aad2c7 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nc8059a120a094c9e93385774bb4b83f2 dcterms:language "es"^^xsd:language ;
+_:Nd55fc62e5d864275a0ceee49643f8ba3 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nccab546b75434bbf84585b0a32b7438f dcterms:language "es"^^xsd:language ;
+_:Nd7779f979b814250948961fd6a8c53e3 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ncddb7258e7a34b38b74acd6101af7d61 dcterms:language "es"^^xsd:language ;
+_:Nd7cc26f1c00f4c32bb4d3346a31d5d27 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ncfed0d4311a44b4095f0e2fb38832934 dcterms:language "es"^^xsd:language ;
+_:Nd7d32fa0cfe64d2da79d41bfb2810675 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nd27d17d66f584bf6819ae074213ffea6 dcterms:language "es"^^xsd:language ;
+_:Nd7da64c05af04382a85d0f740b229e34 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nd82fe5cd8e41405c8d539efe389f4274 dcterms:language "es"^^xsd:language ;
+_:Nd997a08f1dae43db81e87ffc13a0a029 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nd8eece6345494f8cadbe749f2756fe25 dcterms:language "es"^^xsd:language ;
+_:Ndc9d08b37b654d648dd691e8bb66dda1 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nd9fbeedace4b4a02a673e355d24c60eb dcterms:language "es"^^xsd:language ;
+_:Ndeacb03e1bdb461bbcef23d5e3cd1cc1 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ndb02c3f7415946cb8258851689407dc5 dcterms:language "es"^^xsd:language ;
+_:Ne11583c8e21c44b88bd23cc236d7d277 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ndb61eed8c9114acb8bfcc60b609c3a4c dcterms:language "es"^^xsd:language ;
+_:Ne1dfa6c1bdb049f692f882c82989cef2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ndbfa9dac947542da894bf1e744e87c3f dcterms:language "es"^^xsd:language ;
+_:Ne32dbed47a2d4e18bfffd1f8c589a54d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ndd8c90b9db4d47e297d2b7619ca4de0d dcterms:language "es"^^xsd:language ;
+_:Ne43ea56f504942929db85ff6ec6c71ca dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nde91cfae6c3b47358f3a4331f805022d dcterms:language "es"^^xsd:language ;
+_:Ne6d32a3e541a4e0eb046fa9b89ec68c4 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ndfb92f6aa61c483b9a98eea7ccf1f62e dcterms:language "es"^^xsd:language ;
+_:Ne867a77a6ae6458fb502739142f5f35c dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne0c42fb319c54fa1b8ffee5b13b50e5b dcterms:language "es"^^xsd:language ;
+_:Ne999cbbc141144a6b2b2d94f561b27e2 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne1c6cf50ce22473c99297904d0e24436 dcterms:language "es"^^xsd:language ;
+_:Nefa79079ec0d4ed6ab936b7d110b101a dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne2a0eb05cef74c179485427bd79d92a3 dcterms:language "es"^^xsd:language ;
+_:Nf15362ba0e0745d09335a3e6de0b2d5e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne32d04a5af4c4d68832306256e8f92be dcterms:language "es"^^xsd:language ;
+_:Nf1c2f2e68a214aca955b1295f2d25f34 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne5d0e860b2e743288fc0742badc3956b dcterms:language "es"^^xsd:language ;
+_:Nf27b4758e0a64855b1aae72aa6742689 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne684928594f14d2e89f3233a0dd862d8 dcterms:language "es"^^xsd:language ;
+_:Nf3ad3f726f5d4e2692ace5a31d17575d dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne6863d9063cf48f9becec9c65424a9c3 dcterms:language "es"^^xsd:language ;
+_:Nf60d3c18da66472bb2e3b8fd14dc5b9f dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne6b41d97fd18432a9205b41a36c88281 dcterms:language "es"^^xsd:language ;
+_:Nf6abd928dc62475eb3d54f4c75bf3cba dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne805edb15f364a04982672f9583c9cb9 dcterms:language "es"^^xsd:language ;
+_:Nf6fb6ef5cb084acfae0a1285423d505e dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Ne988c554aafe48f2ae2345af340b93a3 dcterms:language "es"^^xsd:language ;
+_:Nf907805772c04cd5bb90a588e4757157 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nf7a9adf75c224eb9a8098e07707efa94 dcterms:language "es"^^xsd:language ;
+_:Nfa8189cb80d64a6ca001f7912400e453 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nf8d36a765b5544bab184443a9398d9cd dcterms:language "es"^^xsd:language ;
+_:Nfdc082529b6d4eb68dc0d36e9cee7a22 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
-_:Nff3698bfc9a4419fb71f7b035914a47b dcterms:language "es"^^xsd:language ;
+_:Nfffa7c85d8154c38add9cd16230447d7 dcterms:language "es"^^xsd:language ;
     dcterms:modified "2025-09-15"^^xsd:date ;
     owl:versionInfo "v2.1"^^xsd:string .
 
