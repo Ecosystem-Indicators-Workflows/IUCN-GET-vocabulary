@@ -555,8 +555,13 @@ def build_graph(path, biome_trans=None, realm_trans=None, field_descs=None):
                 name = safe(row[c_name]) if c_name else None
                 desc = safe(row[c_desc]) if c_desc else None
                 if name:
-                    g.add((uri, SKOS.prefLabel,
-                           lang_lit(strip_code_prefix(name, bcode), lang)))
+                    label = strip_code_prefix(name, bcode)
+                    # Skip non-English prefLabel if it duplicates the English one —
+                    # that's an untranslated placeholder in the workbook, not a real
+                    # translation. Leaving the slot empty lets the CSV merge fill it.
+                    en_pref = get_pref_label(g, uri, "en")
+                    if lang == "en" or label != en_pref:
+                        g.add((uri, SKOS.prefLabel, lang_lit(label, lang)))
                 if desc:
                     g.add((uri, SKOS.definition, lang_lit(desc, lang)))
 
@@ -666,8 +671,10 @@ def build_graph(path, biome_trans=None, realm_trans=None, field_descs=None):
                 dist    = safe(row[c_dist])    if c_dist    else None
 
                 if name:
-                    g.add((uri, SKOS.prefLabel,
-                           lang_lit(strip_code_prefix(name, code), lang)))
+                    label = strip_code_prefix(name, code)
+                    en_pref = get_pref_label(g, uri, "en")
+                    if lang == "en" or label != en_pref:
+                        g.add((uri, SKOS.prefLabel, lang_lit(label, lang)))
                 emit_translatable(g, uri, lang, [
                     (IUCN["ecosystemProperties"], props),
                     (IUCN["ecologicalDrivers"],   drivers),
