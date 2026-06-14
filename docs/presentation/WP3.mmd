@@ -1,0 +1,48 @@
+flowchart LR
+    A[Work Package 3<br>Data & Metadata]:::wp
+
+    subgraph Activities
+        A1[Audit vocabularies]:::act
+        A2[Audit datasets &<br>data pipelines]:::act
+        %%A3[FAIR assessment of<br>identified datasets]:::act
+        A4[Transformation<br>& harmonisation tools]:::act
+        A5[Data documentation &<br>user guide]:::act
+    end
+    
+    SubActivities1["Global Ecosystem Typology (GET)<br>National/state classifications"]:::act
+    SubActivities2["Catalogue datasets<br>Document pipelines & access <br>Record rights & licensing<br>FAIR assessment"]:::act
+
+    SubActivities4[Reusable packaging<br>Automated harmonisation]:::act
+
+    subgraph Deliverables
+        D1["Description & publication<br>of relevant vocabularies"]:::del
+        D2["Datasets & pipelines<br>documented<br>"]:::del
+        D3["Packaged transformation<br>& harmonisation tools/<br>workflows operational"]:::del
+        D4["Transformation/harmonisation<br>documented & user guidelines"]:::del
+    end
+
+    %% Activity structure
+    A --> A1 --> SubActivities1
+
+    A --> A2 --> SubActivities2
+    %% --> A3
+    A --> A4 --> SubActivities4
+    A --> A5
+
+    %% Activities to Deliverables mapping
+    SubActivities1 --> D1
+    SubActivities2 --> D2
+    SubActivities4 --> D3
+
+    %%A3 --> D2
+
+    A5 --> D4
+    A4 --> D4
+
+    %% Styles
+    Activities:::Empty
+    Deliverables:::Empty
+    classDef Empty fill:none,stroke:black;
+    classDef wp fill:#0b6efd,color:#fff,stroke:#084298,stroke-width:2px;
+    classDef act fill:#e7f1ff,color:#052c65,stroke:#9ec5fe,stroke-width:1px;
+    classDef del fill:#e8f5e9,color:#1b5e20,stroke:#a5d6a7,stroke-width:1px;

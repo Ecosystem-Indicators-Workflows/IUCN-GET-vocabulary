@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant nom as Nominator
+    participant sc as Scientific Committee
+    participant hub as Data Hub
+    participant reg as Register
+    participant db as Database
+    participant repo as Repositories
+    participant web as Website
+    participant doc as Documents
+
+    Note over nom,sc: Proposal of adjustment
+    reg-->>nom: Was issue addressed in previous proposals?
+    nom->>+sc: Submit proposal
+    sc-->>nom: Further advice<br>& revision
+    nom-->>sc: Submit ammended<br>proposal
+    sc->>-sc: Internal/external<br>consultation
+    Note over sc,reg: Decision / Recommendation
+    sc->>+hub: Changes<br>accepted or rejected
+    hub->>reg: Record decision
+    Note over hub,repo: Implementation
+    hub->>-db: Maps, names, description,<br> circumscription, classification
+    db->>db: Translations?
+    db->>repo: Propagate changes
+    Note over sc,doc: Publication
+    sc-->>+hub: New (sub-)version
+    repo->>hub: compile changes
+    db->>hub: compile changes
+    hub->>web: Update web version
+    hub->>-doc: Update document version
+    
+    
