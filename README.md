@@ -17,59 +17,59 @@ IUCN is committed to maintaining the Global Ecosystem Typology as the global kno
 - Changes or additions to the list have to meet certain conditions and follow **review processes**.
 - **Designing the metadata elements** for a digital asset collection and designing the controlled vocabulary are integrated processes.
 
-## Making a FAIR vocabularies {.smaller}
+## Making a FAIR vocabularies
 
 Following recommendations from Cox et al. (2021) 
 
-### Rule 1. Determine the governance arrangements and custodian of the legacy vocabulary ✅
+### Rule 1. ✅ Determine the governance arrangements and custodian of the legacy vocabulary
 
 The ***Global Ecosystem Typology Scientific Committee (GET-SC)*** was established in 2024 to advise on scientific and technical aspects of the maintenance and update of the GET to ensure high standards of scientific excellence and its fitness for purpose across diverse applications.
 
 We will coordinate with the [GET-SC and the GET Data hub](https://red-list-ecosystem.github.io/GET-data-hub/governance.html)
 
-### Rule 2. Verify that the legacy-vocabulary license allows repurposing, and agree on the license for the FAIR vocabulary ✅
+### Rule 2. ✅ Verify that the legacy-vocabulary license allows repurposing, and agree on the license for the FAIR vocabulary
 
 All content is based on Keith et al. (2022) and reuse of the text for the vocabulary complies with relevant licenses and [terms of use](https://global-ecosystems.org/page/terms).
 
-This FAIR vocabulary is licensed under a CC-BY license.
+This FAIR vocabulary in the [output](/output/) folder is licensed under CC-BY license.
 
-### Rule 3. Check term and definition completeness and consistency in the legacy vocabulary ✅
+### Rule 3. ✅ Check term and definition completeness and consistency in the legacy vocabulary
 
 All terms and definitions are complete and consistent with the [updated on-line version of the GET](https://global-ecosystems.org/).
 
-### Rule 4. Establish a traceable maintenance-environment for the FAIR vocabulary content ✅
+### Rule 4. ✅ Establish a traceable maintenance-environment for the FAIR vocabulary content
 
-This [repository](https://github.com/Ecosystem-Indicators-Workflows/IUCN-GET-vocabulary) was create to keep a version control and issue tracking of the changes to the vocabulary
+This [repository](https://github.com/Ecosystem-Indicators-Workflows/IUCN-GET-vocabulary) was create to keep a version control and issue tracking of the changes to the vocabulary.
 
-### Rule 5. Assign a unique and persistent identifier to (a) the vocabulary and (b) each term in the vocabulary ✅
+
+### Rule 5. ✅ Assign a unique and persistent identifier to (a) the vocabulary and (b) each term in the vocabulary
 
 We registered the permanent ID [w3id.org/iucn-get](https://w3id.org/iucn-get/) for this vocabulary.
 
-### Rule 6. Create machine readable representations of the vocabulary terms ✅
+### Rule 6. ✅ Create machine readable representations of the vocabulary terms
 
+Scripts to translate input tables into machine readable representations are located in folder [code](/code/).
 
-### Rule 7. Add vocabulary metadata 🚧👷🏽
+The code is shared with a [MIT License](/code/LICENSE).
+
+### Rule 7. 🚧👷🏽 Add vocabulary metadata
 
 Work in progress
 
-### Rule 8. Register the vocabulary ✅ (demo) ⏳ (production)
+### Rule 8. 🚧👷🏽 Register the vocabulary 
 
-We loaded / registered the encoded content in the following vocabulary service:
+We loaded / registered the encoded content in the following vocabulary service: [*Research Vocabularies Australia*](https://vocabs.ardc.edu.au/) 
 
-- Research Vocabularies Australia (RVA) (https://vocabs.ardc.edu.au/) 
-
-Currently as a demo version: 
-
-[demo.vocabs.ardc.edu.au](https://demo.vocabs.ardc.edu.au/viewById/1167)
+Currently operating as a demo version: [demo.vocabs.ardc.edu.au](https://demo.vocabs.ardc.edu.au/viewById/1167)
 
 
-### Rule 9. Make the vocabulary accessible for humans and machines 🚧👷🏽
+### Rule 9. 🚧👷🏽 Make the vocabulary accessible for humans and machines
 
 Work in progress.
 
-### Rule 10. Implement a process for publishing revisions of the FAIR vocabulary ⏳
+### Rule 10. ⏳ Implement a process for publishing revisions of the FAIR vocabulary
 
-Work in progress.
+To do.
 
 ## References
 
