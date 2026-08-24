@@ -1,9 +1,12 @@
 ---
 subtitle: "Ecosystems Indicators Workflows Project"
 title: "Controlled vocabulary for the IUCN Global Ecosystem Typology"
+author: 
+    - "JR Ferrer-Paris, Meghali Nandi, Silvia Colombo (UNSW)"
+    - "William Masson (JCU)"
+    - "Paula Martínez, Rowan Brownlee (ARDC)"
 editor_options: 
   chunk_output_type: console
-engine: jupyter
 embed-resources: true
 format: 
   revealjs:
@@ -19,6 +22,7 @@ title-slide-attributes:
     data-background-image: "slide-header-2.png"
     data-background-size: contain
 ---
+
 
 ```{mermaid}
 %%| fig-width: 6.5

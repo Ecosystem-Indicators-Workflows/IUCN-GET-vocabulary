@@ -1,0 +1,160 @@
+---
+subtitle: "Ecosystems Indicators Workflows Project"
+title: "Controlled vocabulary for the IUCN Global Ecosystem Typology"
+author: 
+    - "JR Ferrer-Paris, Meghali Nandi, Silvia Colombo (UNSW)"
+    - "William Masson (JCU)"
+    - "Paula Martínez, Rowan Brownlee (ARDC)"
+embed-resources: true
+format: 
+  revealjs:
+    theme: default
+    footer: "Ecosystem Indicators Workflows / 15 Jun 2026 / JR Ferrer-Paris"
+    logo: logo_CES.png
+    css: 
+     - css/logo.css
+     - css/custom.css
+bibliography: references.bib
+execute: 
+  echo: true
+preview-links: true
+title-slide-attributes:
+    data-background-image: "slide-header-2.png"
+    data-background-size: contain
+---
+
+## Where is the Vocabulary?
+
+The human readable version can be accessed from 
+
+<https://w3id.org/iucn-get/IUCNEcosystemTypology>
+
+And navigate through the hierarchy:
+
+- <https://w3id.org/iucn-get/Realm_FM>
+- <https://w3id.org/iucn-get/Biome_FM1>
+- <https://w3id.org/iucn-get/EFG_FM1_2>
+
+The identifiers resolve to the current (demo) version hosted at <https://demo.vocabs.ardc.edu.au/>
+
+## Using R package `rdflib`
+
+Load the libraries for this example
+
+```{r}
+library(rdflib)
+library(dplyr)
+library(readr)
+```
+
+## Read vocabulary
+
+You can download a copy or access the file online. There are multiple formats and points of access.
+
+::: {.panel-tabset}
+
+### Read online file
+
+```{r}
+online_file <- paste(
+    c("https://demo.vocabs.ardc.edu.au",
+    "registry/api/resource/downloads/7901",
+    "IUCN-GET-profiles-exported-2026-04-01_skos-2.ttl"),
+    collapse = "/")
+
+IUCNGET <- rdf_parse(online_file)
+```
+
+### SPARQL 1.1 Query endpoints
+
+```{r}
+sparql_endpoint <- "https://demo.vocabs.ardc.edu.au/repository/api/sparql/ands-nc_iucn-get-example_2026-04-01-v3"
+```
+
+:::
+
+## Test RDF query
+
+```{r}
+
+query <- "
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?scheme ?title WHERE {
+  ?scheme a skos:ConceptScheme ;
+          skos:prefLabel ?title .
+}
+"
+
+rdf_query(IUCNGET,query)
+```
+
+
+## Complex queries
+
+```{r}
+
+query = "
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX iucn: <https://w3id.org/iucn-get/ontology#>
+
+SELECT ?efg ?efg_id ?efg_name ?efg_drivers ?efg_properties ?efg_distribution
+       ?biome_id ?biome_name 
+       ?realm_id ?realm_name 
+WHERE {
+  # 1. Get the EFGs
+  ?efg a iucn:EcosystemFunctionalGroup ;
+             skos:prefLabel ?efg_name ;
+             skos:notation ?efg_id ;
+             iucn:ecosystemProperties ?efg_properties;
+             iucn:ecologicalDrivers ?efg_drivers;
+             iucn:distribution ?efg_distribution;
+             skos:broader ?biome .
+  
+  # 2. Get the biomes
+  ?biome skos:prefLabel ?biome_name ;
+         skos:notation ?biome_id ;
+         skos:broader ?realm .
+  
+  # 3. Get the realms
+  ?realm skos:prefLabel ?realm_name ;
+         skos:notation ?realm_id .
+  
+  # Language filters
+  FILTER(LANG(?efg_name) = 'en' && LANG(?efg_properties) = 'en' && LANG(?efg_distribution) = 'en' && LANG(?efg_drivers) = 'en' && LANG(?biome_name) = 'en' && LANG(?realm_name) = 'en')
+}
+"
+```
+
+## Table with profiles
+```{r}
+
+IUCNGET_profiles <- rdf_query(IUCNGET,query)
+
+IUCNGET_profiles
+```
+
+## Data wrangling in R
+
+```{r}
+IUCNGET_profiles |> 
+  filter(biome_id %in% c("T1")) |>
+  select(efg_id, efg_name)
+```
+
+---
+
+
+```{r}
+#| output: asis
+IUCNGET_profiles |> 
+  filter(efg_id %in% c("T1.2")) |>
+  transmute(
+    profile_text = sprintf("**Key ecological drivers for %s**: %s",
+    efg_id, efg_drivers)) |>
+    pull() |> cat()
+```
+
+## Alternative approaches
+
+
