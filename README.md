@@ -71,6 +71,20 @@ Work in progress.
 
 To do.
 
+## The vocabulary in action
+
+### Within the Ecosystem Indicator Workflows project
+
+- [ecoSynthesis](https://github.com/Ecosystem-Indicators-Workflows/ecoSynthesis) is an R package for synthesis of cross-referencing information between two classification systems. See [documentation](https://ecosystem-indicators-workflows.github.io/ecoSynthesis/).
+- Used in several examples of [Workflows for cross-referencing Australian Ecosystems](https://github.com/search?q=topic%3Across-referencing+org%3AEcosystem-Indicators-Workflows&type=Repositories)
+- [EFG reference data store](https://github.com/Ecosystem-Indicators-Workflows/EFG-reference-data-store) provides input data for EcoID tool (under development).
+
+### Outside the EIW project
+- [iucn-get-data](https://github.com/RLE-Assessment/iucn-get-data) provides Python access to the upper three levels of the IUCN Global Ecosystem Typology (GET) 2.0. See [documentation](https://rle-assessment.github.io/iucn-get-data/).
+- IUCN Red List of Ecosystems assessments database ([SERIS project](https://findanexpert.unimelb.edu.au/project/26-2350-spatial-ecosystem-risk-intelligence-system-(seris)), under development)
+
+
+
 ## References
 
 - Keith, D. A., J. R. Ferrer-Paris, E. Nicholson, M. Bishop, B. A, Polidoro, E. Ramirez-Llodra, M. G. Tozer, J. L. Nel, R. Mac Nally, E. J. Gregr, K. E. Watermeyer, F. Essl, D. Faber-Langendoen, J. Franklin, C. E. R. Lehmann, A. Etter, D. J. Roux, J. S. Stark, J. A. Rowland, N. A. Brummitt, U. C. Fernandez-Arcaya, I. M. Suthers, S. K. Wiser, I. Donohue, L. J. Jackson, R. T. Pennington, N. Pettorelli, A. Andrade, A. Lindgaard, T. Tahvanainen, A. Terauds, M. A. Chadwick, N. J. Murray, J. Moat, P. Pliscoff, I. Zager, and R. T. Kingsford (2022) A function-based typology for Earth’s ecosystems Nature 610, 513–518. DOI:10.1038/s41586-022-05318-4.
